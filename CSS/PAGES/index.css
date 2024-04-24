@@ -1,0 +1,110 @@
+*{
+    font-family: sans-serif;
+}
+
+body{
+    height: 100vh;
+    margin: 0;
+}
+
+/*HEADER*/
+header{
+    display:flex;
+    background-color: rgba(28, 99, 214, 0.5);
+    background-image: url("../../IMG/calculadora.jpg");
+    background-repeat: no-repeat;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 10vh;
+    
+}
+
+
+header nav{
+    width: 500px;
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+}
+
+a{
+    text-decoration: none;  
+    color: #fff;
+}
+
+a:visited{
+    color: #fff;
+}
+
+#logo-nav{
+    border-radius: 25px;
+    max-width: 50px;
+    max-height:50px;
+}
+
+
+/*MAIN*/
+main{
+    background-color: rgba(247, 255, 6, 0.5);
+    display: grid;
+    grid-template-columns:3fr 9fr;
+    height: 100vh;
+}
+
+#menu-navegacion{
+    display:flex;
+    justify-content: space-between;
+    flex-direction: column;
+    background-color: rgba(188,215,239,255);
+}
+
+#menu-navegacion{
+    border: solid;
+}
+
+#menu-navegacion ul{
+    list-style:none;
+    display: grid;
+    padding: 0 40px;
+}
+
+#menu-navegacion ul a{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin: 5% 0;
+    border: solid ;
+    border-radius: 100px;
+    padding: 20px;
+    background-color: rgba(70,114,196,1);
+    border-color: rgba(70,114,196,1);
+    text-transform: uppercase;
+}
+
+/*tengo que agregar los iconos a cada link del menu*/
+#menu-navegacion ul a:hover{
+    background-color: rgba(145,171,219,1);
+    border-color: rgba(145,171,219,1);
+}
+
+#menu-navegacion ul a:first-child{
+    background-color: rgba(190,190,191,1);
+    border-color: rgba(190,190,191,1);
+    /*tengo que alinear el boton de inicio a la derecha*/
+}
+
+#menu-navegacion ul a:first-child:hover{
+    background-color: rgb(160, 160, 160);
+    border-color: rgb(160, 160, 160);
+}
+
+#principal{
+    border: solid;
+}
+
+/*FOOTER*/
+footer{
+    background-color: rgba(205, 45, 45, 0.5);
+    height: 10vh;
+}
