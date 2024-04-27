@@ -4,115 +4,104 @@
 
 body{
     height: 100vh;
-    overflow-x: hidden;
+    width: 100vw;
     margin: 0;
-}
-
-/*HEADER*/
-header{
-    display:flex;
-    background-image: url("../../IMG/calculadora.jpg");
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 10vh;
-}
-
-
-header nav{
-    width: 100vw;
-    display: flex;
-    justify-content:center;
-    align-items: center;
-    background-position: center;
-}
-
-header nav a{
-    color: #fff;
-    margin: 0 10px;
+    overflow-x: hidden;
 }
 
 a{
-    text-decoration: none;  
+    color: rgba(234,236,239,1);
+    text-decoration: none;
 }
 
-a:visited{
-    color: #fff;
+li{
+    list-style: none;
 }
 
-#logo-nav{
-    border-radius: 25px;
-    max-width: 50px;
-    max-height:50px;
-}
-
-
-/*MAIN*/
-main{
-    background-color: rgba(247, 255, 6, 0.5);
+#main-container{
     display: grid;
-    grid-template-columns:3fr 9fr;
-    height: 100vh;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: 0.5fr 4fr 2fr;
 }
 
-#menu-navegacion{
-    display:flex;
+:root{
+    --black:rgba(24,27,33,0.85);
+    --color-main:rgba(63, 71, 84,1);
+    --orange:rgba(229, 183,0,1);
+}
+
+/*HEADER*/
+#main-container header{
+    background-color: var(--black);
+    grid-column: 1/4;
+    display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    background-color: rgba(188,215,239,1);
 }
 
-#menu-navegacion ul{
-    margin-bottom: 50px;
-    list-style:none;
-    display: grid;
-    padding: 0 40px;
-}
-
-#menu-navegacion ul a{
-    display: grid;
+header a{
+    display: flex;
     justify-content: center;
     align-items: center;
-    margin: 5% 0;
-    border-radius: 100px;
-    padding: 20px;
-    background-color: rgba(70,114,196,1);
-    border-color: rgba(70,114,196,1);
+}
+
+a h2{
     text-transform: uppercase;
 }
 
-/*tengo que agregar los iconos a cada link del menu*/
-#menu-navegacion ul a:hover{
-    background-color: rgba(145,171,219,1);
-    border-color: rgba(145,171,219,1);
+header a img{
+    max-width:5rem ;
+    max-height: 5rem;
+    border-radius: 100px;
+    margin: 20px;
 }
 
-#comentario{
-    display: flex;
+
+
+
+/*MAIN*/
+#main-container main{
+    background-color:var(--black);
+    grid-column: 1/4;
+}
+
+#mid-section{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+#main-content{
     background-color: #fff;
-    border-radius: 20px;
-    width: 90%;
-    margin-top: 20px ;
 }
 
-#comentario img{
-    height: 50%;
-    width: 50%;
-    margin-right:10px;
+.menu-lateral{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-#comentario p{
-
+.menu-lateral ul{
+    display: flex;
+    flex-direction: column;
+    margin-right: 50px;
 }
 
+.menu-lateral ul a{
+    margin-bottom: 25px;
+    padding:20px;
+    background-color: var(--orange);
+    border-radius: 50px;
+    text-align: center;
+    text-transform: uppercase;
+}
 
-#principal{
-
+.menu-lateral ul a:hover{
+    background-color:rgb(168, 134, 1);
 }
 
 /*FOOTER*/
-footer{
-    background-color: rgba(205, 45, 45, 0.5);
-    height: 10vh;
+#main-container footer{
+    background-color: var(--orange);
+    grid-column: 1/4;
 }
