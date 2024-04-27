@@ -27,10 +27,10 @@ li{
 :root{
     --black:rgba(24,27,33,0.85);
     --color-main:rgba(63, 71, 84,1);
-    --orange:rgba(229, 183,0,1);
+    --orange:rgb(229, 156, 0);
 }
 
-/*HEADER*/
+/*-----------------------HEADER-----------------------*/
 #main-container header{
     background-color: var(--black);
     grid-column: 1/4;
@@ -56,10 +56,7 @@ header a img{
     margin: 20px;
 }
 
-
-
-
-/*MAIN*/
+/*-----------------------MAIN-----------------------*/
 #main-container main{
     background-color:var(--black);
     grid-column: 1/4;
@@ -71,7 +68,7 @@ header a img{
 }
 
 #main-content{
-    background-color: #fff;
+    /*background-color: #fff;*/
 }
 
 .menu-lateral{
@@ -100,7 +97,7 @@ header a img{
     background-color:rgb(168, 134, 1);
 }
 
-/*FOOTER*/
+/*-----------------------FOOTER-----------------------*/
 #main-container footer{
     background-color: var(--orange);
     grid-column: 1/4;
