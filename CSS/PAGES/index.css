@@ -28,11 +28,12 @@ li{
     --black:rgba(24,27,33,0.85);
     --color-main:rgba(63, 71, 84,1);
     --orange:rgb(229, 156, 0);
+    --fondo-b:#191a21;
 }
 
 /*-----------------------HEADER-----------------------*/
 #main-container header{
-    background-color: var(--black);
+    background-color: var(--fondo-b);
     grid-column: 1/4;
     display: flex;
     justify-content: center;
@@ -58,24 +59,98 @@ header a img{
 
 /*-----------------------MAIN-----------------------*/
 #main-container main{
-    background-color:var(--black);
+    background-color:var(--fondo-b);
     grid-column: 1/4;
 }
 
 #mid-section{
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 3fr 3fr;
 }
 
-#main-content{
-    /*background-color: #fff;*/
+/*-----------------------CONTENIDO PRINCIPAL-----------------------*/
+#contenido-principal{
+    background-color: #191a21;
+    grid-column: 2/4;
 }
 
+#lista-monedas{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+    margin: 0;
+    overflow-y:auto;
+    max-height: 700px;
+    margin-right: 20px;
+}
+
+#lista-monedas div{
+    display: grid;
+    padding: 20px;
+    grid-template-columns: 1fr 2fr 2fr 50px;
+}
+
+
+div h4{
+    justify-self: center;
+    align-self: center;
+}
+
+div .compra{
+    justify-self: center;
+    align-self: center;
+}
+
+div .venta{
+    justify-self: center;
+    align-self: center;
+}
+
+#lista-monedas div{
+    background-color: #1d1e29;
+    color:#fff;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+#lista-monedas div:hover{
+    background-color:#1f2027 ;
+}
+
+#lista-monedas div:active{
+    background-color:#1c1d23 ;
+}
+
+#contenido-principal ul li button img{
+    width: 20px;
+}
+
+#contenido-principal ul li button{
+    background-color:#1d1e29;
+    width: 40px;
+    border: none;   
+}
+
+#contenido-principal ul li button:hover{
+    background-color:var(--fondo-b);
+    border: none;
+}
+
+#contenido-principal ul li button:active{
+    background-color:rgb(131, 131, 131);
+    border: none;
+}
+
+
+
+
+/*-----------------------MENU LATERAL-----------------------*/
 .menu-lateral{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 
 .menu-lateral ul{
@@ -96,6 +171,28 @@ header a img{
 .menu-lateral ul a:hover{
     background-color:rgb(185, 128, 4);
 }
+
+#coments{
+    display:grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 2fr;
+    background-color: #fff;
+    width: 80%;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+#coments img{
+    max-width: 50px;
+}
+
+#coments p{
+    grid-column: 1/3;
+    margin: 0 5px;
+}
+
+
+
 
 /*-----------------------FOOTER-----------------------*/
 #main-container footer{
