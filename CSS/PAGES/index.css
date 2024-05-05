@@ -1,5 +1,15 @@
+@font-face {
+    font-family: 'miFuente';
+    src: url('..//..//FONTS/DroidSansMono-enMp.woff') format('woff');
+}
+
+
 *{
     font-family: sans-serif;
+}
+
+hr{
+    border: solid #101115 1px;
 }
 
 body{
@@ -25,7 +35,7 @@ li{
 }
 
 :root{
-    --black:rgba(24,27,33,0.85);
+    --black:#101115;
     --color-main:rgba(63, 71, 84,1);
     --orange:rgb(229, 156, 0);
     --fondo-b:#191a21;
@@ -33,7 +43,7 @@ li{
 
 /*-----------------------HEADER-----------------------*/
 #main-container header{
-    background-color: var(--fondo-b);
+    background-color: var(--black);
     grid-column: 1/4;
     display: flex;
     justify-content: center;
@@ -72,6 +82,7 @@ header a img{
 #contenido-principal{
     background-color: #191a21;
     grid-column: 2/4;
+    margin-bottom: 10px;
 }
 
 #lista-monedas{
@@ -111,6 +122,7 @@ div .venta{
     color:#fff;
     border-radius: 20px;
     text-transform: uppercase;
+    min-width: 400px;
 }
 
 #lista-monedas div:hover{
@@ -141,8 +153,31 @@ div .venta{
     border: none;
 }
 
+#contenedor-selector{
+    margin:20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#selector-monedas{
+    padding: 10px;
+    background-color: var(--fondo-b);
+    border: solid #fff 1px;
+    border-radius: 20px;
+    color: #fff;
+    text-transform: uppercase;
+}
 
 
+.migas-pan{
+    height: 20px;
+    color: #fff;
+}
+
+.migas-pan span:hover{
+    color:#0F42E1;
+}
 
 /*-----------------------MENU LATERAL-----------------------*/
 .menu-lateral{
@@ -150,7 +185,6 @@ div .venta{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
 }
 
 .menu-lateral ul{
@@ -196,6 +230,58 @@ div .venta{
 
 /*-----------------------FOOTER-----------------------*/
 #main-container footer{
-    background-color: var(--orange);
+    background-color: var(--black);
     grid-column: 1/4;
+    color: #fff;
+    display: grid;
+    grid-template-columns: repeat(3,minmax(150px,1fr));
+    grid-template-rows:repeat(2,minmax(150px,1fr));
+}
+
+#contenedor-redes{
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    grid-column: 1/2;
+    grid-row: 1/3;
+    justify-self: center;
+    align-self: center;
+    margin: 0;
+}
+
+#contenedor-redes a img{
+    width: 40px;
+}
+
+#contenedor-redes a{
+    margin: 10px;
+   
+}
+
+#logo-instagram{
+    min-width: 45px;
+}
+
+footer h4{
+   grid-column: 1/4;
+}
+
+#contenedor-lista{
+    display: grid;
+    grid-column: 3/4;
+    grid-row: 1/3;
+    justify-self: center;
+    align-self: center;
+    margin: 0;
+}
+
+#contenedor-lista ul li{
+    margin: 50px; 
+}
+
+#contenedor-nose{
+    color: #838383;
+    font-size: small;
+    grid-row:2/4;
+    justify-self: center;
+    align-self: end;
 }
