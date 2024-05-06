@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Lunasima:wght@400;700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
-
 *{
     font-family: sans-serif,Lunasima;
+    overflow-x: hidden;
 }
 
 hr{
@@ -13,7 +13,6 @@ body{
     height: 100vh;
     width: 100vw;
     margin: 0;
-    overflow-x: hidden;
 }
 
 a{
@@ -67,8 +66,9 @@ header a{
     align-items: center;
 }
 
-a h2{
+a h1{
     text-transform: uppercase;
+    font-size:x-large;
 }
 
 header a img{
@@ -77,13 +77,6 @@ header a img{
     border-radius: 100px;
     margin: 20px;
 }
-
-
-
-
-
-
-
 
 /*-----------------------FOOTER-----------------------*/
 #main-container footer{

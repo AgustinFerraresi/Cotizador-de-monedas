@@ -56,8 +56,9 @@ header a{
     align-items: center;
 }
 
-a h2{
+a h1{
     text-transform: uppercase;
+    font-size: x-large;
 }
 
 header a img{
