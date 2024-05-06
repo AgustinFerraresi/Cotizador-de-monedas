@@ -1,11 +1,9 @@
-@font-face {
-    font-family: 'miFuente';
-    src: url('..//..//FONTS/DroidSansMono-enMp.woff') format('woff');
-}
+
+@import url('https://fonts.googleapis.com/css2?family=Lunasima:wght@400;700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 
 *{
-    font-family: sans-serif;
+    font-family:sans-serif,Lunasima;
 }
 
 hr{
@@ -24,6 +22,7 @@ a{
     text-decoration: none;
 }
 
+
 li{
     list-style: none;
 }
@@ -39,6 +38,7 @@ li{
     --color-main:rgba(63, 71, 84,1);
     --orange:rgb(229, 156, 0);
     --fondo-b:#191a21;
+    --blue: #122ae0;
 }
 
 /*-----------------------HEADER-----------------------*/
@@ -176,7 +176,7 @@ div .venta{
 }
 
 .migas-pan span:hover{
-    color:#0F42E1;
+    color:var(--orange);
 }
 
 /*-----------------------MENU LATERAL-----------------------*/
@@ -185,6 +185,7 @@ div .venta{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-left: 20px;
 }
 
 .menu-lateral ul{
@@ -271,8 +272,12 @@ footer h4{
     margin: 0;
 }
 
+#contenedor-lista a:hover{
+    color: var(--orange);
+}
+
 #contenedor-lista ul li{
-    margin: 50px; 
+    margin: 40px; 
 }
 
 #contenedor-nose{
@@ -281,4 +286,21 @@ footer h4{
     grid-row:2/4;
     justify-self: center;
     align-self: end;
+}
+
+#contenedor-nose2{
+    color: #838383;
+    font-size: small;
+    grid-column: 3/4;
+    justify-self: center;
+    align-self: end;
+}
+
+#contenedor-nose2 a{
+    color: var(--orange);
+}
+
+
+#contenedor-nose2 a:hover{
+    color: var(--blue);
 }
