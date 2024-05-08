@@ -10,15 +10,15 @@
     width: 100%;
     max-height: 90%;
     overflow-y:scroll;
-    border: solid red;
     margin-top: 100px;
+    margin: 30px 0;
 }
 
 table{
     color: #fff;
     border-collapse: separate;
     border-spacing: 0;
-    margin: 100px 180px;
+    margin: 10px 180px;
     width: 80%;
 }
 
@@ -28,6 +28,16 @@ th{
     color: #000;
     text-transform: uppercase;
     border-radius: 4px;
+    
+}
+
+
+.pepe{
+    max-width: 50px;
+}
+
+#header-moneda{
+    width: 450px !important;
 }
 
 tr td{
@@ -49,7 +59,11 @@ tr td button img{
 }
 
 tr td button:hover{
-    background-color: #20202b;
+    background-color: #3b3b4d;
+}
+
+tr td button:active{
+    background-color: #1d1d29;
 }
 
 .fecha{

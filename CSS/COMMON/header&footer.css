@@ -44,12 +44,21 @@ li{
 #main-container main{
     background-color:var(--fondo-b);
     grid-column: 1/4;
+    height: 802px;
+    overflow-y: hidden;
 }
 
-#mid-section{
-    display: grid;
-    grid-template-columns: 1fr 3fr 3fr;
+.migas-pan{
+    height: 20px;
+    color: #fff;
+    text-align: end;
+    margin-right: 100px;
 }
+
+.migas-pan span:hover{
+    color:var(--orange);
+}
+
 
 /*-----------------------HEADER-----------------------*/
 #main-container header{
@@ -58,6 +67,7 @@ li{
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 120px;
 }
 
 header a{
@@ -86,6 +96,7 @@ header a img{
     display: grid;
     grid-template-columns: repeat(3,minmax(150px,1fr));
     grid-template-rows:repeat(2,minmax(150px,1fr));
+    height: 401px;
 }
 
 #contenedor-redes{
