@@ -74,6 +74,7 @@ header a{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 17px;
 }
 
 a h1{

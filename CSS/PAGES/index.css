@@ -48,6 +48,7 @@ li{
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 header a{
@@ -102,7 +103,6 @@ header a img{
     grid-template-columns: 1fr 2fr 2fr 50px;
 }
 
-
 div h4{
     justify-self: center;
     align-self: center;
@@ -121,7 +121,8 @@ div .venta{
 #lista-monedas div{
     background-color: #1d1e29;
     color:#fff;
-    border-radius: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
     text-transform: uppercase;
     min-width: 400px;
 }
@@ -155,9 +156,9 @@ div .venta{
 }
 
 #contenedor-selector{
-    margin:20px;
+    margin:20px 38px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -165,11 +166,11 @@ div .venta{
     padding: 10px;
     background-color: var(--fondo-b);
     border: solid #fff 1px;
-    border-radius: 20px;
+    border-radius: 10px;
     color: #fff;
     text-transform: uppercase;
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.5);
 }
-
 
 .migas-pan{
     height: 20px;
@@ -199,9 +200,10 @@ div .venta{
     margin-bottom: 55px;
     padding:20px;
     background-color: var(--orange);
-    border-radius: 50px;
+    border-radius: 5px;
     text-align: center;
     text-transform: uppercase;
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.8);
 }
 
 .menu-lateral ul a:hover{
@@ -214,8 +216,9 @@ div .venta{
     grid-template-rows: 1fr 2fr;
     background-color: #fff;
     width: 80%;
-    border-radius: 20px;
+    border-radius: 10px;
     margin-bottom: 10px;
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.8);
 }
 
 #coments img{

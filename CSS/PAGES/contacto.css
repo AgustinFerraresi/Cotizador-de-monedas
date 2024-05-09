@@ -1,0 +1,133 @@
+:root{
+    --black:#101115;
+    --color-main:rgba(63, 71, 84,1);
+    --orange:rgb(229, 156, 0);
+    --fondo-b:#191a21;
+    --blue: #122ae0;
+}
+
+
+main{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: 1fr 5fr 5fr;
+}
+
+#contenido-principal{
+    background-color: var(--black);
+    color: #fff;
+    box-shadow: 0px 0px 5px 2px rgba(207, 142, 2, 0.05);
+    border-radius: 10px;
+    padding: 50px;
+    grid-row: 2/4;
+    grid-column: 1/6;
+    width: 80%;
+    height: 80%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+}
+
+#contenido-principal h2{
+    font-size: 40px;
+    grid-column: 1/5;
+    align-self: start;
+    justify-self: center;
+    text-transform: uppercase;
+}
+
+.migas-pan{
+    grid-column: 4/6;
+    width: 100%;
+}
+
+#contenido-principal form{
+    grid-column: 1/5;
+    grid-row: 2/6;
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: repeat(6,1fr);
+}
+
+.label-name{
+    grid-column: 2/4;
+    grid-row: 1/2;
+    align-self: end;
+    text-transform: uppercase;
+}
+
+.label-apellido{
+    grid-column: 4/6;
+    grid-row: 1/2;
+    align-self: end;
+    text-transform: uppercase;
+    margin-left: 10px;
+}
+
+.label-email{
+    grid-row: 2/4;
+    grid-column: 2/6;
+    align-self: center;
+    text-transform: uppercase;
+}
+
+#email{
+    width: 100%;
+    background: none;
+    border: none;
+    border-bottom: 2px solid var(--orange);
+    color: #fff;
+    padding: 10px;
+}
+
+#mensaje{
+    grid-row: 4/5;
+    grid-column: 2/6;
+    height: 100%;
+}
+
+.data{
+    width: 100%;
+    background: none;
+    border: none;
+    border-bottom: 2px solid var(--orange);
+    color: #fff;
+    padding: 10px;
+}
+
+.data:focus{
+    border-top: none;
+}
+
+.data:focus:valid{
+    border-top: none;
+}
+
+#send{
+    grid-row: 6/7;
+    grid-column:4/5;
+}
+
+#clean{
+    grid-row: 6/7;
+    grid-column: 3/4;
+}
+
+.boton{
+    border: none;
+    background-color: var(--orange);
+    color: #fff;
+    text-transform: uppercase;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.boton:hover{
+    background-color:rgb(172, 118, 2);
+}
+
+.boton:active{
+    background-color:var(--orange);
+}
