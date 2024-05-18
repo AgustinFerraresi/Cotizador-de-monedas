@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informes</title>
     <link rel="stylesheet" href="..//CSS/COMMON/header&footer.css">
+    <link rel="stylesheet" href="..//CSS/PAGES/informes.css">
     <link rel="icon" href="../IMG/logo.ico">
 </head>
 
@@ -22,9 +23,115 @@
 
         <!--MAIN-->
         <main>
-            <div id="contenido-principal">
-                <h2>wesa</h2>
+            <div id="contenedor-selector">
+                <select name="" id="selector-monedas">
+                    <option value="" placeholder selected disabled>selecione una moneda</option>
+                    <option value="todas">todas</option>
+                    <option value="dolar-blue">dolar blue</option>
+                    <option value="dolar-oficial">dolar oficial</option>
+                    <option value="dolar-lcc">dolar lcc</option>
+                    <option value="dolar-bolsa">dolar bolsa</option>
+                    <option value="dolar-cripto">dolar cripto</option>
+                    <option value="dolar-turista">dolar turista</option>
+                    <option value="euro">euro</option>
+                    <option value="peso-argentino">peso argentino</option>
+                    <option value="peso-uruguayo">peso uruguayo</option>
+                    <option value="peso-mexicano">peso mexicano</option>
+                    <option value="reales">reales</option>
+                </select>
+
+                <p class="migas-pan">
+                    se encuentra en: <a href="index.html" class="migas-pan" target="_self"><span>inicio</span> / Infromes</a>
+                </p>
+                
             </div>
+
+            <div id="contenedor">
+                <!-- TradingView Widget BEGIN -->
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+            {
+            "symbol": "FX_IDC:USDARS",
+            "width": "100%",
+            "height": "100%",
+            "locale": "en",
+            "dateRange": "12M",
+            "colorTheme": "dark",
+            "isTransparent": false,
+            "autosize": true,
+            "largeChartUrl": "",
+            "noTimeScale": false,
+            "chartOnly": false
+          }
+            </script>
+          </div>
+          <!-- TradingView Widget END -->
+            </div>
+
+            <div class="conteiner">
+                <table>
+                    <tr>
+                        <th id="header-moneda">moneda</th>
+                        <th class="pepe">compra</th>
+                        <th class="pepe">venta</th>
+                        <th class="pepe">variación</th>
+                    </tr>
+
+                    <tr>
+                        <td class="fecha"></td>
+                        <td class="fecha">6/5/24</td>
+                        <td class="fecha"></td>
+                        <td class="fecha"></td>
+                    </tr>
+
+                    <tr>
+                        <td>dolar oficial</td>
+                        <td>$800</td>
+                        <td>$900</td>
+                        <td><button><img src="..//IMG/flecha_arriba.png" alt=""></button></td>
+                    </tr>
+
+                    <tr>
+                        <td>dolar blue</td>
+                        <td>$1040</td>
+                        <td>$1070</td>
+                        <td><button><img src="..//IMG/flecha_abajo.png" alt=""></button></td>
+                    </tr>
+
+                    <tr>
+                        <td>dolar turista</td>
+                        <td>$1098</td>
+                        <td>$1118</td>
+                        <td><button><img src="..//IMG/flecha_arriba.png" alt=""></button></td>
+                    </tr>
+
+                    <tr>
+                        <td>dolar cripto</td>
+                        <td>$1100</td>
+                        <td>$1200</td>
+                        <td><button><img src="..//IMG/flecha_abajo.png" alt=""></button></td>
+                    </tr>
+
+                    <tr>
+                        <td>dolar bolsa</td>
+                        <td>$1070</td>
+                        <td>$1075</td>
+                        <td><button><img src="..//IMG/flecha_abajo.png" alt=""></button></td>
+                    </tr>
+
+                    <tr>
+                        <td>dolar turista</td>
+                        <td>$1384</td>
+                        <td>$1448</td>
+                        <td><button><img src="..//IMG/flecha_arriba.png" alt=""></button></td>
+                    </tr>
+                   
+
+                </table>
+            </div>
+
         </main>
 
         <!--FOOTER-->
