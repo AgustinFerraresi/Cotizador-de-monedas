@@ -1,6 +1,6 @@
 :root{
     --black:#101115;
-    --orange:rgb(229, 156, 0);
+    --orange:rgba(229, 156, 0, 0.8);
     --fondo-b:#191a21;
     --blue: #122ae0;
     --td:#1d1e29;
@@ -25,7 +25,7 @@
 }
 
 .conteiner::-webkit-scrollbar-thumb{
-    background-color: var(--scroll_oscuro);
+    background-color: var(--fondo-b);
     border-radius: 20px;
     scrollbar-width: thin;
 }

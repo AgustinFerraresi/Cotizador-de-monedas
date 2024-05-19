@@ -67,12 +67,11 @@ table{
 
 .conteiner::-webkit-scrollbar{
     background-color: var(--fondo-b);
-    border-radius: 20px;
     scrollbar-width: thin;
 }
 
 .conteiner::-webkit-scrollbar-thumb{
-    background-color: var(--scroll_oscuro);
+    background-color: var(--fondo-b);
     border-radius: 20px;
     scrollbar-width: thin;
 }
