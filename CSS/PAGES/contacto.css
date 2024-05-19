@@ -87,6 +87,8 @@ main{
     grid-row: 4/5;
     grid-column: 2/6;
     height: 100%;
+    max-width: 97.95%; /*uso este porcentaje tan raro pero es para que el text area quede exactamente
+    de la misma longitud que el mail*/
 }
 
 .data{
@@ -99,11 +101,45 @@ main{
 }
 
 .data:focus{
+    outline: none;
     border-top: none;
+    /*sin outline no funciona*/
 }
 
-.data:focus:valid{
-    border-top: none;
+/*input:-webkit-autofill: Esto selecciona cualquier elemento <input> que esté siendo autocompletado por el navegador 
+(por ejemplo, cuando se rellena automáticamente con datos previos).*/
+input:-webkit-autofill{
+    -webkit-box-shadow: 0 0 0 30px #101115 inset !important;
+    caret-color: #fff !important;
+
+    /*caret-color es el color del cursor*/
+
+    /*
+    -webkit-box-shadow: 0 0 0 30px white inset !important;: Aquí se establece una sombra en el campo autocompletado. 
+    La sombra es de color blanco (white) y se muestra hacia adentro (inset
+    La razón por la que se utiliza -webkit-box-shadow en lugar de simplemente cambiar el color de fondo es porque el 
+    comportamiento de los campos autocompletados (autofill) está controlado por el navegador y utiliza estilos específicos. 
+    En cambio, cambiar el color de fondo directamente podría no funcionar correctamente en todos los navegadores, 
+    ya que algunos pueden aplicar estilos adicionales o ignorar las reglas de fondo personalizadas para los campos autofill. 
+    Por lo tanto, utilizar -webkit-box-shadow es una forma más confiable
+    */
+
+    /*
+    -webkit-box-shadow: Esta propiedad se utiliza para agregar una sombra alrededor de un elemento. 
+    El prefijo -webkit- indica que es específico para navegadores basados en WebKit (como Chrome y Safari).
+    0 0 0 30px white inset: Estos valores definen los parámetros de la sombra:
+    El primer 0 representa el desplazamiento horizontal de la sombra (en este caso, no hay desplazamiento).
+    El segundo 0 representa el desplazamiento vertical de la sombra (también sin desplazamiento vertical).
+    El tercer 0 es el radio de difuminado de la sombra (sin difuminado).
+    30px es la longitud de la sombra (en este caso, 30 píxeles).
+    white indica el color de la sombra (blanco).
+    inset especifica que la sombra debe estar dentro del elemento (es decir, una sombra interna).
+    */
+}
+
+/* Cambia el color del texto en el input autofill */
+input:-webkit-autofill {
+    -webkit-text-fill-color: #fff !important;
 }
 
 #send{
