@@ -83,6 +83,11 @@ main{
     padding: 10px;
 }
 
+#email:hover{
+    border-bottom:2px solid rgba(227, 204, 34,1);
+    transition: border-bottom 2s;
+}
+
 #mensaje{
     grid-row: 4/5;
     grid-column: 2/6;
@@ -100,6 +105,11 @@ main{
     padding: 10px;
 }
 
+.data:hover{
+    border-bottom:2px solid rgba(227, 204, 34,1);
+    transition: border-bottom 2s;
+}
+
 .data:focus{
     outline: none;
     border-top: none;
@@ -109,8 +119,8 @@ main{
 /*input:-webkit-autofill: Esto selecciona cualquier elemento <input> que esté siendo autocompletado por el navegador 
 (por ejemplo, cuando se rellena automáticamente con datos previos).*/
 input:-webkit-autofill{
-    -webkit-box-shadow: 0 0 0 30px #101115 inset !important;
-    caret-color: #fff !important;
+    -webkit-box-shadow: 0 0 0 30px #101115 inset ;
+    caret-color: #fff ;
 
     /*caret-color es el color del cursor*/
 
@@ -139,7 +149,7 @@ input:-webkit-autofill{
 
 /* Cambia el color del texto en el input autofill */
 input:-webkit-autofill {
-    -webkit-text-fill-color: #fff !important;
+    -webkit-text-fill-color: #fff;
 }
 
 #send{
@@ -162,7 +172,9 @@ input:-webkit-autofill {
 }
 
 .boton:hover{
-    background-color:rgb(157, 108, 2);
+    transition: background-color 0.5s;
+    background-color:rgb(235, 165, 14);
+    /*background-color:rgb(157, 108, 2);*/
 }
 
 .boton:active{
