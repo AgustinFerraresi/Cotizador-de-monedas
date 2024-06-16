@@ -252,18 +252,26 @@ div .venta{
     grid-template-rows: 1fr 2fr;
     background-color: #fff;
     width: 80%;
+    min-height: 260px;
+    max-height: 260px;
     border-radius: 10px;
     margin-bottom: 10px;
     box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.8);
 }
 
 #coments img{
-    max-width: 50px;
+    max-width: 70px;
+    border-radius: 50px;
+    margin: 5px;
 }
 
 #coments p{
     grid-column: 1/3;
-    margin: 0 5px;
+    margin: 20px 5px;
+}
+
+#coments h5{
+    margin-left: 20px;
 }
 
 /*-----------------------FOOTER-----------------------*/
