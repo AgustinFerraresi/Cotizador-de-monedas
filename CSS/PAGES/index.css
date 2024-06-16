@@ -136,11 +136,11 @@ header a img{
 #lista-monedas div{
     display: grid;
     padding: 20px;
-    grid-template-columns: 1fr 2fr 2fr 50px;
+    grid-template-columns: 2fr 2fr 2fr 50px;
 }
 
 div h4{
-    justify-self: center;
+    justify-self: start;
     align-self: center;
 }
 

@@ -6,6 +6,7 @@
     <title>Cotizador de monedas</title>
     <link rel="icon" href="../IMG/logo.png">
     <link rel="stylesheet" href="../CSS/PAGES/index.css">
+    <script src="..//JS/PAGES/index.js" defer></script>
 </head>
 <body>
     <div id="main-container">
@@ -20,19 +21,17 @@
         <main>
             <div id="contenedor-selector">
                 <select name="" id="selector-monedas">
-                    <option value="" placeholder selected disabled>selecione una moneda</option>
-                    <option value="todas">todas</option>
+                    <option value="todas" placeholder selected>todas las monedas</option>
                     <option value="dolar-blue">dolar blue</option>
                     <option value="dolar-oficial">dolar oficial</option>
                     <option value="dolar-lcc">dolar lcc</option>
                     <option value="dolar-bolsa">dolar bolsa</option>
                     <option value="dolar-cripto">dolar cripto</option>
-                    <option value="dolar-turista">dolar turista</option>
+                    <option value="dolar-mayorista">dolar mayorista</option>
                     <option value="euro">euro</option>
-                    <option value="peso-argentino">peso argentino</option>
+                    <option value="real-brasileño">real brasileño</option>
                     <option value="peso-uruguayo">peso uruguayo</option>
-                    <option value="peso-mexicano">peso mexicano</option>
-                    <option value="reales">reales</option>
+                    <option value="peso-uruguayo">peso uruguayo</option>
                 </select>
 
                 <p class="migas-pan">
@@ -56,115 +55,23 @@
                         <p>
                             Muy buena página, profe apruebe al muchacho
                         </p>
-
                    </div>
                 </section>
 
                 <div id="contenido-principal">
                     <ul id="lista-monedas">
-                        <li>
-                            <div>
-                                <h4>ofical</h4> <span class="compra">COMPRA $850</span>  <span class="venta">VENTA $887</span>
-                                <button><img src="..//IMG/marcado.png" alt="marcado"></button>
-                            </div>
-                        </li>
+                        <!--
+                        aca se mostraran las cotizaciones de las monedas los datos de las mismas se traeran de la api
+                        y tendrá este formato:
 
-                        <li>
-                            <div>
-                                <h4>blue</h4> <span class="compra">COMPRA $850</span>  <span class="venta">VENTA $887</span>
-                                <button><img src="..//IMG/marcado.png" alt="marcado"></button>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div>
-                                <h4>liqui</h4> <span class="compra">COMPRA $850</span>  <span class="venta">VENTA $887</span>
-                                <button><img src="..//IMG/desmarcado.png" alt="marcado"></button>
-                            </div>
-                        </li>                        
-
-                        <li>
-                            <div>
-                                <h4>turista</h4> <span class="compra">COMPRA $850</span>  <span class="venta">VENTA $887</span>
-                                <button><img src="..//IMG/desmarcado.png" alt="marcado"></button>
-                            </div>
-                        </li>
-                        
-                        <li>
-                            <div>
-                                <h4>cripto</h4> <span class="compra">COMPRA $850</span>  <span class="venta">VENTA $887</span>
-                                <button><img src="..//IMG/desmarcado.png" alt="marcado"></button>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div>
-                                <h4>tarjeta</h4> <span class="compra">COMPRA $850</span>  <span class="venta">VENTA $887</span>
-                                <button><img src="..//IMG/desmarcado.png" alt="marcado"></button>
-                            </div>
-                        </li>
-                        
-                        <li>
-                            <div>
-                                <h4>bolsa</h4> <span class="compra">COMPRA $850</span>  <span class="venta">VENTA $887</span>
-                                <button><img src="..//IMG/marcado.png" alt="marcado"></button>
-                            </div>
-                        </li>                        
-
-                        <li>
-                            <div>
-                                <h4>euro</h4> <span class="compra">COMPRA $850</span>  <span class="venta">VENTA $887</span>
-                                <button><img src="..//IMG/marcado.png" alt="marcado"></button>
-                            </div>
-                        </li>  
-                        
-                        <li>
-                            <div>
-                                <h4>OFICIAL</h4> <span class="compra">COMPRA $850</span>  <span class="venta">VENTA $887</span>
-                                <button><img src="..//IMG/marcado.png" alt="marcado"></button>
-                            </div>
-                        </li>
-                        
-                        <li>
-                            <div>
-                                <h4>OFICIAL</h4> <span class="compra">COMPRA $850</span>  <span class="venta">VENTA $887</span>
-                                <button><img src="..//IMG/marcado.png" alt="marcado"></button>
-                            </div>
-                        </li>                        
-
-                        <li>
-                            <div>
-                                <h4>OFICIAL</h4> <span class="compra">COMPRA $850</span>  <span class="venta">VENTA $887</span>
-                                <button><img src="..//IMG/marcado.png" alt="marcado"></button>
-                            </div>
-                        </li> 
-
-                        <li>
-                            <div>
-                                <h4>OFICIAL</h4> <span class="compra">COMPRA $850</span>  <span class="venta">VENTA $887</span>
-                                <button><img src="..//IMG/marcado.png" alt="marcado"></button>
-                            </div>
-                        </li>
-                        
-                        <li>
-                            <div>
-                                <h4>OFICIAL</h4> <span class="compra">COMPRA $850</span>  <span class="venta">VENTA $887</span>
-                                <button><img src="..//IMG/marcado.png" alt="marcado"></button>
-                            </div>
-                        </li>                        
-
-                        <li>
-                            <div>
-                                <h4>OFICIAL</h4> <span class="compra">COMPRA $850</span>  <span class="venta">VENTA $887</span>
-                                <button><img src="..//IMG/marcado.png" alt="marcado"></button>
-                            </div>
-                        </li>
-
-
+                        <div>
+                            <h4>${nombreDeLaMoneda}</h4> <span class="compra">COMPRA $${valorCompra}</span><span class="venta">VENTA $${valorVenta}</span>
+                            <input type="checkbox">
+                        </div>
+                        -->
                     </ul>
                 </div>
             </div>
-       
         </main>
 
         <!--FOOTER-->

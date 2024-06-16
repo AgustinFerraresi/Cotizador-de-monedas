@@ -1,3 +1,0 @@
-en esta carpeta ira cada js de cada pagina
-
-osea cada js por separado
