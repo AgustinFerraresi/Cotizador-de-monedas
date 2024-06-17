@@ -260,6 +260,7 @@ div .venta{
 }
 
 #coments img{
+    min-width: 70px;
     max-width: 70px;
     border-radius: 50px;
     margin: 5px;

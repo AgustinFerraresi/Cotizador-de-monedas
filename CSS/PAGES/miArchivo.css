@@ -117,11 +117,12 @@ tr td button:active{
 
 .menu-lateral ul a{
     margin-bottom: 55px;
-    padding:20px;
+    padding: 17px;
     background-color: var(--orange);
     border-radius: 5px;
     text-align: center;
     text-transform: uppercase;
+    
 }
 
 .menu-lateral ul a:hover{
