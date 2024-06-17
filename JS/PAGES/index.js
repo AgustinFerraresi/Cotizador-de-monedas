@@ -87,149 +87,77 @@ async function main() {
             let nuevoItemDolar = document.createElement("li");
             nuevoItemDolar.innerHTML = 
             `
-            <li class="${datosApi[i].moneda}">
-                <div>
-                    <h4>${datosApi[i].casa}</h4> <span class="compra">COMPRA $${datosApi[i].compra}</span><span class="venta">VENTA $${datosApi[i].venta}</span>
-                    <input type="checkbox">
-                </div>
-            </li>
+            <div>
+                <h4>${datosApi[i].casa}</h4> <span class="compra">COMPRA $${datosApi[i].compra}</span><span class="venta">VENTA $${datosApi[i].venta}</span>
+                <input type="checkbox" class="checkbox" id="${i}">
+                <label for="${i}" class="label-checkbox"><img src="..//..//IMG/desmarcado.png" alt=""></label>
+            </div>
             `
+            nuevoItemDolar.className = `${datosApi[i].moneda}`;
             listaMonedas.appendChild(nuevoItemDolar); 
             i = i + 1;
-        }
+        } //class="${datosApi[i].moneda}"
 
         //-----------------------agrego el euro-----------------------
         let nuevoItemEuro = document.createElement("li");
         nuevoItemEuro.innerHTML = 
         `
-        <li id="${euro.moneda}">
-            <div>
-                <h4>${euro.nombre}</h4> <span class="compra">COMPRA $${euro.compra}</span><span class="venta">VENTA $${euro.venta}</span>
-                <input type="checkbox">
-            </div>
-        </li>
+        <div>
+            <h4>${euro.nombre}</h4> <span class="compra">COMPRA $${euro.compra}</span><span class="venta">VENTA $${euro.venta}</span>
+            
+            <input type="checkbox">
+        </div>
         `
+        nuevoItemEuro.id = `${euro.moneda}`;
         listaMonedas.appendChild(nuevoItemEuro);
 
         //-----------------------agrego el real brasileño-----------------------
         let nuevoItemReal = document.createElement("li");
         nuevoItemReal.innerHTML = 
         `
-        <li id="${real.moneda}">
-            <div>
-                <h4>${real.nombre}</h4> <span class="compra">COMPRA $${real.compra}</span><span class="venta">VENTA $${real.venta}</span>
-                <input type="checkbox">
-            </div>
-        </li>
+        <div>
+            <h4>${real.nombre}</h4> <span class="compra">COMPRA $${real.compra}</span><span class="venta">VENTA $${real.venta}</span>
+            <input type="checkbox">
+        </div>
         `
+        nuevoItemReal.id = `${real.moneda}`;
         listaMonedas.appendChild(nuevoItemReal);
 
         //-----------------------agrego el peso chileno-----------------------
         let nuevoItemPesoChileno = document.createElement("li");
         nuevoItemPesoChileno.innerHTML = 
         `
-        <li id="${pesoChileno.moneda}">
-            <div>
-                <h4>${pesoChileno.nombre}</h4> <span class="compra">COMPRA $${pesoChileno.compra}</span><span class="venta">VENTA $${pesoChileno.venta}</span>
-                <input type="checkbox">
-            </div>
-        </li>
+        <div>
+            <h4>${pesoChileno.nombre}</h4> <span class="compra">COMPRA $${pesoChileno.compra}</span><span class="venta">VENTA $${pesoChileno.venta}</span>
+            <input type="checkbox">
+        </div>
         `
+        nuevoItemPesoChileno.id = `${pesoChileno.moneda}`;
         listaMonedas.appendChild(nuevoItemPesoChileno);
 
         //-----------------------agrego el peso uruguayo-----------------------
         let nuevoItemPesoUruguayo = document.createElement("li");
         nuevoItemPesoUruguayo.innerHTML = 
         `
-        <li id="${pesoUruguayo.moneda}">
-            <div>
-                <h4>${pesoUruguayo.nombre}</h4> <span class="compra">COMPRA $${pesoUruguayo.compra}</span><span class="venta">VENTA $${pesoUruguayo.venta}</span>
-                <input type="checkbox">
-            </div>
-        </li>
+        <div>
+            <h4>${pesoUruguayo.nombre}</h4> <span class="compra">COMPRA $${pesoUruguayo.compra}</span><span class="venta">VENTA $${pesoUruguayo.venta}</span>
+            <input type="checkbox">
+        </div>
         `
+        nuevoItemPesoUruguayo.id = `${pesoUruguayo.moneda}`;
         listaMonedas.appendChild(nuevoItemPesoUruguayo);
     }
 }
 
 /* RECORDATORIO
-el mostrar las monedas segun el select ya esta en funcionamiento solo que se muestran de manera desprolija flata arreglar eso
-creo que el problema se debe a que yo estoy cambiando el display del li que creo desde js pero no el dislplay del li que contiene a ese otro li (el creado en js)
-tengo que agregar la clase al li que estoy creando aca en el js por ejemplo en la linea 141 let nuevoItemPesoUruguayo = document.createElement("li"); 
-a ese li le tengo que cambiar el display
+Tengo que hacer que cambie la imagen de la estrella cuando el checkbox este activo
+de momento deje que se vea el checkbox para ver que todo funcione despues hay que ponerle tamaño 0px
+CUIDADO!
+tengo que pensar como se van a mostrar las imagenes del label cuando se cargue la pagina porque si el checkbox
+ya estaba seleccionado la imagen debe ser una y si no lo esta debe de ser otra
+se me ocurre quizas recorrer todas las monedas cuando se cargue la pagina y ahi aplicar las imagenes
+para esto se usa local storage
 */
-
-
-/* 
-    let dolares = document.getElementsByClassName("USD");
-    let eur = document.getElementById("EUR");
-    let realBrasil = document.getElementById("BRL");
-    let Chileno = document.getElementById("CLP");
-    let Uruguayo = document.getElementById("UYU")
-
-    console.log(dolares);
-    console.log(eur)
-
-    if (select.value == "dolar") {
-
-        for (let dolar of dolares) {
-                dolar.style.display = "grid";
-        }
-
-        eur.style.display = "none";
-        realBrasil.style.display = "none";
-        Chileno.style.display = "none";
-        Uruguayo.style.display = "none";
-
-    }else if(select.value == "euro"){
-
-        for (let dolar of dolares) {
-            dolar.style.display = "none";
-        }
-
-        eur.style.display = "grid";
-        realBrasil.style.display = "none";
-        Chileno.style.display = "none";
-        Uruguayo.style.display = "none";
-
-    }else if(select.value == "real-brasileño"){
-
-        for (let dolar of dolares) {
-            dolar.style.display = "none";
-        }
-
-        realBrasil.style.display = "grid";
-        eur.style.display = "none";
-        Chileno.style.display = "none";
-        Uruguayo.style.display = "none";
-
-    }else if(select.value == "peso-chileno"){
-        
-        for (let dolar of dolares) {
-            dolar.style.display = "none";
-        }
-
-        Chileno.style.display = "grid";
-        eur.style.display = "none";
-        realBrasil.style.display = "none";
-        Uruguayo.style.display = "none";
-
-    }else if(select.value == "peso-uruguayo"){
-
-        for (let dolar of dolares) {
-            dolar.style.display = "none";
-        }
-
-        Uruguayo.style.display = "grid";
-        eur.style.display = "none";
-        realBrasil.style.display = "none";
-        Chileno.style.display = "none";
-
-    }
-}
-
-*/
-
 
 function mostrarMonedas() {
     let dolares = document.getElementsByClassName("USD");
@@ -310,5 +238,78 @@ function mostrarMonedas() {
 
 
 
+
+
 main();
 select.onchange = mostrarMonedas, main;
+
+
+/* 
+    let dolares = document.getElementsByClassName("USD");
+    let eur = document.getElementById("EUR");
+    let realBrasil = document.getElementById("BRL");
+    let Chileno = document.getElementById("CLP");
+    let Uruguayo = document.getElementById("UYU")
+
+    console.log(dolares);
+    console.log(eur)
+
+    if (select.value == "dolar") {
+
+        for (let dolar of dolares) {
+                dolar.style.display = "grid";
+        }
+
+        eur.style.display = "none";
+        realBrasil.style.display = "none";
+        Chileno.style.display = "none";
+        Uruguayo.style.display = "none";
+
+    }else if(select.value == "euro"){
+
+        for (let dolar of dolares) {
+            dolar.style.display = "none";
+        }
+
+        eur.style.display = "grid";
+        realBrasil.style.display = "none";
+        Chileno.style.display = "none";
+        Uruguayo.style.display = "none";
+
+    }else if(select.value == "real-brasileño"){
+
+        for (let dolar of dolares) {
+            dolar.style.display = "none";
+        }
+
+        realBrasil.style.display = "grid";
+        eur.style.display = "none";
+        Chileno.style.display = "none";
+        Uruguayo.style.display = "none";
+
+    }else if(select.value == "peso-chileno"){
+        
+        for (let dolar of dolares) {
+            dolar.style.display = "none";
+        }
+
+        Chileno.style.display = "grid";
+        eur.style.display = "none";
+        realBrasil.style.display = "none";
+        Uruguayo.style.display = "none";
+
+    }else if(select.value == "peso-uruguayo"){
+
+        for (let dolar of dolares) {
+            dolar.style.display = "none";
+        }
+
+        Uruguayo.style.display = "grid";
+        eur.style.display = "none";
+        realBrasil.style.display = "none";
+        Chileno.style.display = "none";
+
+    }
+}
+
+*/

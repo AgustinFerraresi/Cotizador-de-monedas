@@ -217,6 +217,28 @@ div .venta{
     color:var(--orange);
 }
 
+/*-----------------------CHECKBOX-----------------------*/
+.checkbox{
+    width: 10px;
+    grid-column: 4/5;
+    grid-row: 2/3;
+    width: 10px;
+    height: 10px;
+}
+
+.label-checkbox{
+    grid-column: 4/5;
+    grid-row: 1/2;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+}
+
+.label-checkbox img{
+    width: 50%;
+}
+
+
 /*-----------------------MENU LATERAL-----------------------*/
 .menu-lateral{
     display: flex;
