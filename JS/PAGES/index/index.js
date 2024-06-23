@@ -63,14 +63,15 @@ async function llamadaPesoUruguayo() {
 }
 
 async function main() {
+    console.log("estoy en MAIN")
     await llamadaApi();
     await llamadaEuro();
     await llamadaReal();
     await llamadaPesoChileno();
     await llamadaPesoUruguayo();
-
+    console.log(datosApi); 
  /* 
-    console.log(datosApi);    
+       
     console.log(real);
     console.log(pesoChileno);
     console.log(pesoUruguayo);
@@ -101,8 +102,8 @@ async function main() {
         `
         <div>
             <h4>${euro.nombre}</h4> <span class="compra">COMPRA $${euro.compra}</span><span class="venta">VENTA $${euro.venta}</span>
-            
-            <input type="checkbox">
+            <input type="checkbox" class="checkbox" id="euro">
+            <label for="euro" class="label-checkbox"><img src="..//..//IMG/desmarcado.png" alt="" id="imgeuro"></label>
         </div>
         `
         nuevoItemEuro.id = `${euro.moneda}`;
@@ -114,7 +115,8 @@ async function main() {
         `
         <div>
             <h4>${real.nombre}</h4> <span class="compra">COMPRA $${real.compra}</span><span class="venta">VENTA $${real.venta}</span>
-            <input type="checkbox">
+            <input type="checkbox" class="checkbox" id="real">
+            <label for="real" class="label-checkbox"><img src="..//..//IMG/desmarcado.png" alt="" id="imgreal"></label>
         </div>
         `
         nuevoItemReal.id = `${real.moneda}`;
@@ -126,7 +128,8 @@ async function main() {
         `
         <div>
             <h4>${pesoChileno.nombre}</h4> <span class="compra">COMPRA $${pesoChileno.compra}</span><span class="venta">VENTA $${pesoChileno.venta}</span>
-            <input type="checkbox">
+            <input type="checkbox" class="checkbox" id="pesoChileno">
+            <label for="pesoChileno" class="label-checkbox"><img src="..//..//IMG/desmarcado.png" alt="" id="imgpesoChileno"></label>
         </div>
         `
         nuevoItemPesoChileno.id = `${pesoChileno.moneda}`;
@@ -138,7 +141,8 @@ async function main() {
         `
         <div>
             <h4>${pesoUruguayo.nombre}</h4> <span class="compra">COMPRA $${pesoUruguayo.compra}</span><span class="venta">VENTA $${pesoUruguayo.venta}</span>
-            <input type="checkbox">
+            <input type="checkbox" class="checkbox" id="pesoUruguayo">
+            <label for="pesoUruguayo" class="label-checkbox"><img src="..//..//IMG/desmarcado.png" alt="" id="imgpesoUruguayo"></label>
         </div>
         `
         nuevoItemPesoUruguayo.id = `${pesoUruguayo.moneda}`;
@@ -150,9 +154,10 @@ async function main() {
     let checkboxes = document.querySelectorAll(".checkbox");
     
     checkboxes.forEach(checkbox => {
-
         let img = document.getElementById(`img${checkbox.id}`)
-        let traigoCheckboxes = localStorage.getItem(checkbox.id);   
+        console.log(img)
+        let traigoCheckboxes = localStorage.getItem(checkbox.id);
+
             if (traigoCheckboxes && traigoCheckboxes === "true") {
                 checkbox.checked = true;
                 img.setAttribute("src","..//IMG/marcado.png");
@@ -176,22 +181,9 @@ async function main() {
             }else{
                 img.setAttribute("src","..//IMG/desmarcado.png");
             }
-
         })
     });
-    
-    
 }
-
-/* RECORDATORIO
-Tengo que hacer que cambie la imagen de la estrella cuando el checkbox este activo
-de momento deje que se vea el checkbox para ver que todo funcione despues hay que ponerle tamaño 0px
-CUIDADO!
-tengo que pensar como se van a mostrar las imagenes del label cuando se cargue la pagina porque si el checkbox
-ya estaba seleccionado la imagen debe ser una y si no lo esta debe de ser otra
-se me ocurre quizas recorrer todas las monedas cuando se cargue la pagina y ahi aplicar las imagenes
-para esto se usa local storage
-*/
 
 function mostrarMonedas() {
     let dolares = document.getElementsByClassName("USD");
@@ -271,72 +263,6 @@ function mostrarMonedas() {
 main();
 select.onchange = mostrarMonedas, main;
 
-//saveFav------------------------------------------------------------------------------------
+setInterval(main, 300000);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/**
-//me traigo todos los elementos que tengan la clase checkbox estos se guardan en la var checkboxes en forma de NodeList (funciona muy similar a un array)
-let checkboxes = document.querySelectorAll(".checkbox");
-console.log("muestro los checkboxes ",checkboxes);
-
-let button = document.getElementById("button");
-
-//aca se guardaran todas las monedas que tengan el checkbox activo
-let favorites = []; 
-
-function cargarFavoritos() {
-    
-}
-
-function revisarCheckBoxes() {
-    checkboxes.forEach((checkbox, index) => {
-        if (checkbox.checked) {
-            favorites.push(index);
-        }
-    });  
-    save();
-    console.log("estoy dentro de revisarCheckBoxes",favorites)  
-}
-
-// Guarda el arreglo 'favoritas' en el Local Storage, convirtiéndolo a formato JSON
-function save() {
-    //localStorage.setItem('monedasFavoritas', JSON.stringify(favorites));
-
-    //lo guardo en una variable para poder mostrarlo por consola y ver que se este guardando bien
-    //let seleccionadas = localStorage.getItem("monedasFavoritas");
-    console.log("funcion save",seleccionadas);
-}
-
-/*
-document.addEventListener('DOMContentLoaded', function() {
-    revisarCheckBoxes();
-    console.log("se llama a la funcion revisarCheckBoxes");
-});
-
-
-button.onclick = revisarCheckBoxes;
-
-
-/* 
-se me ocurre recorrer todos los checkboxes que esten en local storage (si estan alli quiere decir que fueron seleccionados) al principio de la pagina
-y ponerles estado de active a los mismo asi se logra mantener el estado de los mismos 
-
-*/
+//5 minutos son 300000
