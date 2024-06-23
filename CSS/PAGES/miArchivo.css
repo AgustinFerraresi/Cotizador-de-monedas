@@ -128,7 +128,15 @@ tr td button:active{
 .menu-lateral ul a:hover{
     transition: background-color 0.5s;
     background-color:rgb(235, 165, 14);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Sombra al pasar el cursor */
+    transform: translateY(-1px); /* Levantar el botón */
 }
+
+.menu-lateral ul a:active{
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra cuando se hace clic */
+    transform: translateY(1px); /* Hunde el botón */
+}
+
 
 #coments{
     display:grid;
