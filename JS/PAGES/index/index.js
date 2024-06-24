@@ -1,9 +1,6 @@
 "use strict";
-
 let select = document.getElementById("selector-monedas");
 let listaMonedas = document.getElementById("lista-monedas")
-//console.log(select.value);
-
 
 //en estas variables lo que se va a guardar son los datos de la api 
 let datosApi; //aca se guardan los datos de los dolares
@@ -12,70 +9,19 @@ let real;
 let pesoUruguayo;
 let pesoChileno;
 
-/*
-El objetivo de esta funcion es poder usar una variable cada vez que se quiera hacer una llamada a la api
+/*El objetivo de esta funcion es poder usar una variable cada vez que se quiera hacer una llamada a la api
 lo que hace la funcion es asignar a una variable la respuesta de la api y luego esa respuesta es asignada
-a una variable global pero en formato json
-*/
-async function llamadaApi() {
-    try {
-        let response = await fetch("https://dolarapi.com/v1/dolares");
-        datosApi = await response.json();
-    } catch (error) {
-        console.error(`Error: ${error}`);
-    }
-}
-
-async function llamadaEuro() {
-    try {
-        let response = await fetch("https://dolarapi.com/v1/cotizaciones/eur");
-        euro = await response.json();
-    } catch (error) {
-        console.error(`Error: ${error}`);
-    }
-}
-
-async function llamadaReal() {
-    try {
-        let response = await fetch("https://dolarapi.com/v1/cotizaciones/brl");
-        real = await response.json();
-    } catch (error) {
-        console.error(`Error: ${error}`);
-    }
-}
-
-async function llamadaPesoChileno() {
-    try {
-        let response = await fetch("https://dolarapi.com/v1/cotizaciones/clp");
-        pesoChileno = await response.json();
-    } catch (error) {
-        console.error(`Error: ${error}`);
-    }
-}
-
-async function llamadaPesoUruguayo() {
-    try {
-        let response = await fetch("https://dolarapi.com/v1/cotizaciones/uyu");
-        pesoUruguayo = await response.json();
-    } catch (error) {
-        console.error(`Error: ${error}`);
-    }
-}
+a una variable global pero en formato json*/
 
 async function main() {
-    console.log("estoy en MAIN")
     await llamadaApi();
-    await llamadaEuro();
-    await llamadaReal();
-    await llamadaPesoChileno();
-    await llamadaPesoUruguayo();
-    console.log(datosApi); 
- /* 
-       
-    console.log(real);
-    console.log(pesoChileno);
-    console.log(pesoUruguayo);
- */
+    async function llamar() {
+        await llamadaApi();
+    }
+    
+    //llamo cada 5 mins a la funcion para actualizar los datos de las cotizaciones 5 minutos son 300000
+    setInterval(llamar,300000);
+
     if (select.value == "todas") {
         let i = 0;
 
@@ -95,7 +41,6 @@ async function main() {
             listaMonedas.appendChild(nuevoItemDolar); 
             i = i + 1;
         }
-
         //-----------------------agrego el euro-----------------------
         let nuevoItemEuro = document.createElement("li");
         nuevoItemEuro.innerHTML = 
@@ -149,13 +94,11 @@ async function main() {
         listaMonedas.appendChild(nuevoItemPesoUruguayo);
     }
 
-    //___________________________________________
     //aca se guardara un node list (un array) con todos los objetos html que conicidan con la clase
     let checkboxes = document.querySelectorAll(".checkbox");
     
     checkboxes.forEach(checkbox => {
         let img = document.getElementById(`img${checkbox.id}`)
-        console.log(img)
         let traigoCheckboxes = localStorage.getItem(checkbox.id);
 
             if (traigoCheckboxes && traigoCheckboxes === "true") {
@@ -169,9 +112,9 @@ async function main() {
     
     //se añade un listener a cada checkbox
     checkboxes.forEach(checkbox => {    
+        
         /*cada vez que se cambie el estado del checkbox se llamara a la funcion la cual guarda su estado en la key con el nombre
         del ID del checkbox cuando cambie el estado del checkbox el nuevo estado se guardará en la key ya creada*/
-
         checkbox.addEventListener("change",function() {
             localStorage.setItem(checkbox.id,checkbox.checked);
 
@@ -262,7 +205,3 @@ function mostrarMonedas() {
 
 main();
 select.onchange = mostrarMonedas, main;
-
-setInterval(main, 300000);
-
-//5 minutos son 300000

@@ -1,3 +1,0 @@
-en esta carpeta iran el js comun a 2 o mas paginas
-
-osea si mas de una pagina tiene el mismo codigo js, el archivo de ese codigo ira en esta carpeta
