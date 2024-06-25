@@ -2,12 +2,7 @@
 let select = document.getElementById("selector-monedas");
 let listaMonedas = document.getElementById("lista-monedas")
 
-//en estas variables lo que se va a guardar son los datos de la api 
-let datosApi; //aca se guardan los datos de los dolares
-let euro;
-let real;
-let pesoUruguayo;
-let pesoChileno;
+
 
 /*El objetivo de esta funcion es poder usar una variable cada vez que se quiera hacer una llamada a la api
 lo que hace la funcion es asignar a una variable la respuesta de la api y luego esa respuesta es asignada
@@ -96,27 +91,91 @@ async function main() {
 
     //aca se guardara un node list (un array) con todos los objetos html que conicidan con la clase
     let checkboxes = document.querySelectorAll(".checkbox");
-    
+
+    //CARGO EL ESTADO PREVIO DE LOS CHECKBOXES
     checkboxes.forEach(checkbox => {
         let img = document.getElementById(`img${checkbox.id}`)
-        let traigoCheckboxes = localStorage.getItem(checkbox.id);
-
-            if (traigoCheckboxes && traigoCheckboxes === "true") {
+        let traigoCheckbox = localStorage.getItem(checkbox.id);
+        let traigoCheckboxParse = JSON.parse(traigoCheckbox);
+        console.log(traigoCheckboxParse)
+/* */
+            if (traigoCheckboxParse && traigoCheckboxParse.estado == true) {
                 checkbox.checked = true;
                 img.setAttribute("src","..//IMG/marcado.png");
             }else{
                 checkbox.checked = false;
                 img.setAttribute("src","..//IMG/desmarcado.png");
             }
+
     });
     
-    //se añade un listener a cada checkbox
+    //se añade un LISTENER A CADA CHECKBOX
     checkboxes.forEach(checkbox => {    
         
         /*cada vez que se cambie el estado del checkbox se llamara a la funcion la cual guarda su estado en la key con el nombre
         del ID del checkbox cuando cambie el estado del checkbox el nuevo estado se guardará en la key ya creada*/
         checkbox.addEventListener("change",function() {
-            localStorage.setItem(checkbox.id,checkbox.checked);
+            
+             if (checkbox.id === "euro") {
+                let moneda = {
+                    id: checkbox.id,
+                    nombre: euro.nombre,
+                    compra: euro.compra,
+                    venta: euro.venta,
+                    estado: checkbox.checked,
+                    fecha: euro.fechaActualizacion
+                }
+                localStorage.setItem(checkbox.id,JSON.stringify(moneda));
+             }else if(checkbox.id === "real") {
+                let moneda = {
+                    id: checkbox.id,
+                    nombre: real.nombre,
+                    compra: real.compra,
+                    venta: real.venta,
+                    estado: checkbox.checked,
+                    fecha: real.fechaActualizacion
+                }
+                localStorage.setItem(checkbox.id,JSON.stringify(moneda));
+             }else if(checkbox.id === "pesoChileno") {
+                let moneda = {
+                    id: checkbox.id,
+                    nombre: pesoChileno.nombre,
+                    compra:pesoChileno.compra,
+                    venta: pesoChileno.venta,
+                    estado: checkbox.checked,
+                    fecha: pesoChileno.fechaActualizacion
+                }
+                localStorage.setItem(checkbox.id,JSON.stringify(moneda));
+             }else if(checkbox.id === "pesoUruguayo") {
+                let moneda = {
+                    id: checkbox.id,
+                    nombre: pesoUruguayo.nombre,
+                    compra: pesoUruguayo.compra,
+                    venta: pesoUruguayo.venta,
+                    estado: checkbox.checked,
+                    fecha: pesoUruguayo.fechaActualizacion
+                }
+                localStorage.setItem(checkbox.id,JSON.stringify(moneda));
+             }
+
+             let i = 0;
+             while (i < datosApi.length) {
+                if (checkbox.id == i) {
+                    let moneda = {
+                        id: checkbox.id,
+                        nombre: datosApi[i].nombre,
+                        compra: datosApi[i].compra,
+                        venta: datosApi[i].venta,
+                        estado: checkbox.checked,
+                        fecha: datosApi[i].fechaActualizacion
+                    }
+                    localStorage.setItem(checkbox.id,JSON.stringify(moneda));
+                }
+                i = i + 1;
+             }
+
+
+            
 
             let img = document.getElementById(`img${checkbox.id}`)
             if (checkbox.checked) {

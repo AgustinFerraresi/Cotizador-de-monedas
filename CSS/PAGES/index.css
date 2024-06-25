@@ -225,8 +225,8 @@ div .venta{
     width: 10px;
     grid-column: 4/5;
     grid-row: 2/3;
-    width: 0px;
-    height: 0px;
+    width: 10px;
+    height: 10px;
 }
 
 .label-checkbox{

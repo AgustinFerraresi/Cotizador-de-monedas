@@ -12,7 +12,7 @@ class Comment {
 }
 
 let comment1 = new Comment("Lionel Messi","..//IMG/foto-perfil-messi.jpg","Ta buena");
-let comment2 = new Comment("Saul Hudson","..//IMG/foto-perfil-slash.jpg","This page inspired me to play the guitar");
+let comment2 = new Comment("Saul Hudson","..//IMG/foto-perfil-slash.jpg","Esta página inspiró mi carrera musical");
 let comment3 = new Comment("Elon Musk","..//IMG/foto-perfil-elon.png","Muy buena página, quiero a este muchacho trabajando en Tesla");
 
 let listCommnets = [comment1,comment2,comment3];
