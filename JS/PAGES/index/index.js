@@ -112,10 +112,14 @@ async function main() {
     //se añade un LISTENER A CADA CHECKBOX
     checkboxes.forEach(checkbox => {    
         
-        /*cada vez que se cambie el estado del checkbox se llamara a la funcion la cual guarda su estado en la key con el nombre
+        /*cada vez que se cambie el estado del checkbox se llamara a la funcion la cual guarda un objeto 
+        (transformado a str el cual contiene todos los datos que seran necesario mas adelante) en la key con el nombre
         del ID del checkbox cuando cambie el estado del checkbox el nuevo estado se guardará en la key ya creada*/
+
         checkbox.addEventListener("change",function() {
-            
+        
+            //si el id del checkbox coincide con alguna de las condiciones de los if´s se crea el objeto moneda con los datos necesarios
+            //y se sube en formato json al local storage
              if (checkbox.id === "euro") {
                 let moneda = {
                     id: checkbox.id,
@@ -126,6 +130,7 @@ async function main() {
                     fecha: euro.fechaActualizacion
                 }
                 localStorage.setItem(checkbox.id,JSON.stringify(moneda));
+
              }else if(checkbox.id === "real") {
                 let moneda = {
                     id: checkbox.id,
@@ -136,6 +141,7 @@ async function main() {
                     fecha: real.fechaActualizacion
                 }
                 localStorage.setItem(checkbox.id,JSON.stringify(moneda));
+
              }else if(checkbox.id === "pesoChileno") {
                 let moneda = {
                     id: checkbox.id,
@@ -146,6 +152,7 @@ async function main() {
                     fecha: pesoChileno.fechaActualizacion
                 }
                 localStorage.setItem(checkbox.id,JSON.stringify(moneda));
+
              }else if(checkbox.id === "pesoUruguayo") {
                 let moneda = {
                     id: checkbox.id,
@@ -158,6 +165,9 @@ async function main() {
                 localStorage.setItem(checkbox.id,JSON.stringify(moneda));
              }
 
+             /*recorro todo datosApi (que es donde se guardan los datos de los dolares que vienen de la api) la var i la uso para poder tener
+             alcance a todos los dolares cuando el usuario seleccione alguna cotizacion de un dolar se recorreran todos hasta encontrar
+             la coincidencia*/
              let i = 0;
              while (i < datosApi.length) {
                 if (checkbox.id == i) {
@@ -173,9 +183,6 @@ async function main() {
                 }
                 i = i + 1;
              }
-
-
-            
 
             let img = document.getElementById(`img${checkbox.id}`)
             if (checkbox.checked) {
