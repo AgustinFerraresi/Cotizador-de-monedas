@@ -288,9 +288,11 @@ input:-webkit-autofill {
 }
 
 
-/*--------------------tradingview-------------------*/
-.tradingview-widget-container{
-    grid-column: 2/3;
-    grid-row: 2/3;
-    overflow-y: hidden;
+/*--------------------GRAFICA-------------------*/
+#miGrafica{
+    margin-left: 200px;
+    max-width: 1000px;
+    max-height: 400px;
+    display: none;
+    
 }
