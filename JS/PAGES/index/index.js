@@ -1,12 +1,17 @@
 "use strict";
 let select = document.getElementById("selector-monedas");
-let listaMonedas = document.getElementById("lista-monedas")
+let listaMonedas = document.getElementById("lista-monedas");
 
+// Función para obtener datos almacenados en localStorage
+function obtenerDatosGuardados() {
+    let datosGuardados = localStorage.getItem("monedas");
+    return datosGuardados ? JSON.parse(datosGuardados) : [];
+}
 
-
-/*El objetivo de esta funcion es poder usar una variable cada vez que se quiera hacer una llamada a la api
-lo que hace la funcion es asignar a una variable la respuesta de la api y luego esa respuesta es asignada
-a una variable global pero en formato json*/
+// Función para guardar datos en localStorage
+function guardarDatos(datos) {
+    localStorage.setItem("monedas", JSON.stringify(datos));
+}
 
 async function main() {
     await llamadaApi();
@@ -14,15 +19,14 @@ async function main() {
         await llamadaApi();
     }
     
-    //llamo cada 5 mins a la funcion para actualizar los datos de las cotizaciones 5 minutos son 300000
+    // Llamo cada 5 mins a la función para actualizar los datos de las cotizaciones 5 minutos son 300000
     setInterval(llamar,300000);
 
     if (select.value == "todas") {
         let i = 0;
 
-        //-----------------------agrego todos los dolares-----------------------
+        // Agrego todos los dólares
         while (i < datosApi.length) {
-
             let nuevoItemDolar = document.createElement("li");
             nuevoItemDolar.innerHTML = 
             `
@@ -31,12 +35,13 @@ async function main() {
                 <input type="checkbox" class="checkbox" id="${i}">
                 <label for="${i}" class="label-checkbox"><img src="..//..//IMG/desmarcado.png" alt="" id="img${i}"></label>
             </div>
-            `
+            `;
             nuevoItemDolar.className = `${datosApi[i].moneda}`;
             listaMonedas.appendChild(nuevoItemDolar); 
             i = i + 1;
         }
-        //-----------------------agrego el euro-----------------------
+
+        // Agrego el euro
         let nuevoItemEuro = document.createElement("li");
         nuevoItemEuro.innerHTML = 
         `
@@ -45,11 +50,11 @@ async function main() {
             <input type="checkbox" class="checkbox" id="euro">
             <label for="euro" class="label-checkbox"><img src="..//..//IMG/desmarcado.png" alt="" id="imgeuro"></label>
         </div>
-        `
+        `;
         nuevoItemEuro.id = `${euro.moneda}`;
         listaMonedas.appendChild(nuevoItemEuro);
 
-        //-----------------------agrego el real brasileño-----------------------
+        // Agrego el real brasileño
         let nuevoItemReal = document.createElement("li");
         nuevoItemReal.innerHTML = 
         `
@@ -58,11 +63,11 @@ async function main() {
             <input type="checkbox" class="checkbox" id="real">
             <label for="real" class="label-checkbox"><img src="..//..//IMG/desmarcado.png" alt="" id="imgreal"></label>
         </div>
-        `
+        `;
         nuevoItemReal.id = `${real.moneda}`;
         listaMonedas.appendChild(nuevoItemReal);
 
-        //-----------------------agrego el peso chileno-----------------------
+        // Agrego el peso chileno
         let nuevoItemPesoChileno = document.createElement("li");
         nuevoItemPesoChileno.innerHTML = 
         `
@@ -71,11 +76,11 @@ async function main() {
             <input type="checkbox" class="checkbox" id="pesoChileno">
             <label for="pesoChileno" class="label-checkbox"><img src="..//..//IMG/desmarcado.png" alt="" id="imgpesoChileno"></label>
         </div>
-        `
+        `;
         nuevoItemPesoChileno.id = `${pesoChileno.moneda}`;
         listaMonedas.appendChild(nuevoItemPesoChileno);
 
-        //-----------------------agrego el peso uruguayo-----------------------
+        // Agrego el peso uruguayo
         let nuevoItemPesoUruguayo = document.createElement("li");
         nuevoItemPesoUruguayo.innerHTML = 
         `
@@ -84,113 +89,112 @@ async function main() {
             <input type="checkbox" class="checkbox" id="pesoUruguayo">
             <label for="pesoUruguayo" class="label-checkbox"><img src="..//..//IMG/desmarcado.png" alt="" id="imgpesoUruguayo"></label>
         </div>
-        `
+        `;
         nuevoItemPesoUruguayo.id = `${pesoUruguayo.moneda}`;
         listaMonedas.appendChild(nuevoItemPesoUruguayo);
     }
 
-    //aca se guardara un node list (un array) con todos los objetos html que conicidan con la clase
+    // Cargo el estado previo de los checkboxes
     let checkboxes = document.querySelectorAll(".checkbox");
+    let datosGuardados = obtenerDatosGuardados();
 
-    //CARGO EL ESTADO PREVIO DE LOS CHECKBOXES
     checkboxes.forEach(checkbox => {
-        let img = document.getElementById(`img${checkbox.id}`)
-        let traigoCheckbox = localStorage.getItem(checkbox.id);
-        let traigoCheckboxParse = JSON.parse(traigoCheckbox);
-        console.log(traigoCheckboxParse)
-/* */
-            if (traigoCheckboxParse && traigoCheckboxParse.estado == true) {
-                checkbox.checked = true;
-                img.setAttribute("src","..//IMG/marcado.png");
-            }else{
-                checkbox.checked = false;
-                img.setAttribute("src","..//IMG/desmarcado.png");
-            }
+        let img = document.getElementById(`img${checkbox.id}`);
+        let traigoCheckbox = datosGuardados.find(moneda => moneda.id === checkbox.id);
 
+        if (traigoCheckbox && traigoCheckbox.estado === true) {
+            checkbox.checked = true;
+            img.setAttribute("src", "..//IMG/marcado.png");
+        } else {
+            checkbox.checked = false;
+            img.setAttribute("src", "..//IMG/desmarcado.png");
+        }
     });
-    
-    //se añade un LISTENER A CADA CHECKBOX
-    checkboxes.forEach(checkbox => {    
-        
-        /*cada vez que se cambie el estado del checkbox se llamara a la funcion la cual guarda un objeto 
-        (transformado a str el cual contiene todos los datos que seran necesario mas adelante) en la key con el nombre
-        del ID del checkbox cuando cambie el estado del checkbox el nuevo estado se guardará en la key ya creada*/
 
-        checkbox.addEventListener("change",function() {
-        
-            //si el id del checkbox coincide con alguna de las condiciones de los if´s se crea el objeto moneda con los datos necesarios
-            //y se sube en formato json al local storage
-             if (checkbox.id === "euro") {
-                let moneda = {
+    // Se añade un listener a cada checkbox
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener("change", function() {
+            let moneda;
+
+            if (checkbox.id === "euro") {
+                moneda = {
                     id: checkbox.id,
                     nombre: euro.nombre,
                     compra: euro.compra,
                     venta: euro.venta,
                     estado: checkbox.checked,
-                    fecha: euro.fechaActualizacion
-                }
-                localStorage.setItem(checkbox.id,JSON.stringify(moneda));
-
-             }else if(checkbox.id === "real") {
-                let moneda = {
+                    fecha: euro.fechaActualizacion,
+                    moneda: euro.moneda
+                };
+            } else if (checkbox.id === "real") {
+                moneda = {
                     id: checkbox.id,
                     nombre: real.nombre,
                     compra: real.compra,
                     venta: real.venta,
                     estado: checkbox.checked,
-                    fecha: real.fechaActualizacion
-                }
-                localStorage.setItem(checkbox.id,JSON.stringify(moneda));
-
-             }else if(checkbox.id === "pesoChileno") {
-                let moneda = {
+                    fecha: real.fechaActualizacion,
+                    moneda: real.moneda
+                };
+            } else if (checkbox.id === "pesoChileno") {
+                moneda = {
                     id: checkbox.id,
                     nombre: pesoChileno.nombre,
-                    compra:pesoChileno.compra,
+                    compra: pesoChileno.compra,
                     venta: pesoChileno.venta,
                     estado: checkbox.checked,
-                    fecha: pesoChileno.fechaActualizacion
-                }
-                localStorage.setItem(checkbox.id,JSON.stringify(moneda));
-
-             }else if(checkbox.id === "pesoUruguayo") {
-                let moneda = {
+                    fecha: pesoChileno.fechaActualizacion,
+                    moneda: pesoChileno.moneda
+                };
+            } else if (checkbox.id === "pesoUruguayo") {
+                moneda = {
                     id: checkbox.id,
                     nombre: pesoUruguayo.nombre,
                     compra: pesoUruguayo.compra,
                     venta: pesoUruguayo.venta,
                     estado: checkbox.checked,
-                    fecha: pesoUruguayo.fechaActualizacion
-                }
-                localStorage.setItem(checkbox.id,JSON.stringify(moneda));
-             }
-
-             /*recorro todo datosApi (que es donde se guardan los datos de los dolares que vienen de la api) la var i la uso para poder tener
-             alcance a todos los dolares cuando el usuario seleccione alguna cotizacion de un dolar se recorreran todos hasta encontrar
-             la coincidencia*/
-             let i = 0;
-             while (i < datosApi.length) {
-                if (checkbox.id == i) {
-                    let moneda = {
-                        id: checkbox.id,
-                        nombre: datosApi[i].nombre,
-                        compra: datosApi[i].compra,
-                        venta: datosApi[i].venta,
-                        estado: checkbox.checked,
-                        fecha: datosApi[i].fechaActualizacion
+                    fecha: pesoUruguayo.fechaActualizacion,
+                    moneda: pesoUruguayo.moneda
+                };
+            } else {
+                let i = 0;
+                while (i < datosApi.length) {
+                    if (checkbox.id == i) {
+                        moneda = {
+                            id: checkbox.id,
+                            nombre: datosApi[i].nombre,
+                            compra: datosApi[i].compra,
+                            venta: datosApi[i].venta,
+                            estado: checkbox.checked,
+                            fecha: datosApi[i].fechaActualizacion,
+                            moneda: datosApi[i].moneda
+                        };
+                        break;
                     }
-                    localStorage.setItem(checkbox.id,JSON.stringify(moneda));
+                    i = i + 1;
                 }
-                i = i + 1;
-             }
-
-            let img = document.getElementById(`img${checkbox.id}`)
-            if (checkbox.checked) {
-                img.setAttribute("src","..//IMG/marcado.png");
-            }else{
-                img.setAttribute("src","..//IMG/desmarcado.png");
             }
-        })
+
+            // Verificar si existe una moneda con la misma fecha
+            let index = datosGuardados.findIndex(m => m.id === moneda.id && m.fecha === moneda.fecha);
+            if (index !== -1) {
+                // Actualizar el estado de la moneda existente
+                datosGuardados[index].estado = moneda.estado;
+            } else {
+                // Agregar una nueva moneda si la fecha es diferente
+                datosGuardados.push(moneda);
+            }
+
+            guardarDatos(datosGuardados);
+
+            // Cambiar la imagen del checkbox según el estado
+            let img = document.getElementById(`img${checkbox.id}`);
+            if (checkbox.checked) {
+                img.setAttribute("src", "..//IMG/marcado.png");
+            } else {
+                img.setAttribute("src", "..//IMG/desmarcado.png");
+            }
+        });
     });
 }
 
@@ -199,12 +203,12 @@ function mostrarMonedas() {
     let euro = document.getElementById("EUR");
     let real = document.getElementById("BRL");
     let pesoChileno = document.getElementById("CLP");
-    let pesoUruguayo = document.getElementById("UYU")
+    let pesoUruguayo = document.getElementById("UYU");
 
     if (select.value == "dolar") {
-
+        
         for (let dolar of dolares) {
-                dolar.style.display = "grid";
+            dolar.style.display = "grid";
         }
 
         euro.style.display = "none";
@@ -212,7 +216,7 @@ function mostrarMonedas() {
         pesoChileno.style.display = "none";
         pesoUruguayo.style.display = "none";
 
-    }else if(select.value == "euro"){
+    } else if (select.value == "euro") {
 
         for (let dolar of dolares) {
             dolar.style.display = "none";
@@ -223,7 +227,7 @@ function mostrarMonedas() {
         pesoChileno.style.display = "none";
         pesoUruguayo.style.display = "none";
 
-    }else if(select.value == "real-brasileño"){
+    } else if (select.value == "real-brasileño") {
 
         for (let dolar of dolares) {
             dolar.style.display = "none";
@@ -234,8 +238,8 @@ function mostrarMonedas() {
         pesoChileno.style.display = "none";
         pesoUruguayo.style.display = "none";
 
-    }else if(select.value == "peso-chileno"){
-        
+    } else if (select.value == "peso-chileno") {
+
         for (let dolar of dolares) {
             dolar.style.display = "none";
         }
@@ -245,7 +249,7 @@ function mostrarMonedas() {
         real.style.display = "none";
         pesoUruguayo.style.display = "none";
 
-    }else if(select.value == "peso-uruguayo"){
+    } else if (select.value == "peso-uruguayo") {
 
         for (let dolar of dolares) {
             dolar.style.display = "none";
@@ -256,8 +260,8 @@ function mostrarMonedas() {
         real.style.display = "none";
         pesoChileno.style.display = "none";
 
-    }
-    else if (select.value == "todas"){
+    } else if (select.value == "todas") {
+
         for (let dolar of dolares) {
             dolar.style.display = "grid";
         }
@@ -270,4 +274,8 @@ function mostrarMonedas() {
 }
 
 main();
-select.onchange = mostrarMonedas, main;
+select.onchange = mostrarMonedas;
+
+
+let x = localStorage.getItem("monedas");
+console.log(JSON.parse(x));

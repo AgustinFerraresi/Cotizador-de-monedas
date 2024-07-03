@@ -133,10 +133,16 @@ header a img{
     scrollbar-width: thin;
 }
 
-#lista-monedas div{
+#lista-monedas li div{
     display: grid;
     padding: 20px;
     grid-template-columns: 2fr 2fr 2fr 50px;
+    background-color: #1d1e29;
+    color:#fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    min-width: 400px;
 }
 
 div h4{
@@ -152,15 +158,6 @@ div .compra{
 div .venta{
     justify-self: center;
     align-self: center;
-}
-
-#lista-monedas div{
-    background-color: #1d1e29;
-    color:#fff;
-    border-radius: 10px;
-    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
-    text-transform: uppercase;
-    min-width: 400px;
 }
 
 #contenido-principal ul li button img{
@@ -225,8 +222,8 @@ div .venta{
     width: 10px;
     grid-column: 4/5;
     grid-row: 2/3;
-    width: 10px;
-    height: 10px;
+    width: 0px;
+    height: 0px;
 }
 
 .label-checkbox{

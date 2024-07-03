@@ -35,55 +35,12 @@
     background-color: var(--scroll_oscuro_hover);
 }
 
-table{
-    color: #fff;
-    border-collapse: separate;
-    border-spacing: 0;
-    margin: 10px 180px;
-    width: 80%;
-}
-
-th{
-    background-color:var(--orange);
-    text-align: center;
-    color: #000;
-    text-transform: uppercase;
-    border-radius: 4px;
-    
-}
-
 .pepe{
     max-width: 50px;
 }
 
 #header-moneda{
     width: 450px !important;
-}
-
-tr td{
-    border: solid 1px rgba(0, 0, 0, 0.2);;
-    text-align: center;
-    background-color: #1d1e29;
-    text-transform: uppercase;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-tr td button {
-    background: none;
-    border: none;
-}
-
-tr td button img{
-    width: 20px;
-}
-
-tr td button:hover{
-    background-color: #3b3b4d;
-}
-
-tr td button:active{
-    background-color: #1d1d29;
 }
 
 .fecha{
@@ -137,7 +94,6 @@ tr td button:active{
     transform: translateY(1px); /* Hunde el botón */
 }
 
-
 #coments{
     display:grid;
     grid-template-columns: 1fr 2fr;
@@ -159,25 +115,142 @@ tr td button:active{
     grid-column: 1/3;
     margin: 0 5px;
 }
-
 /*-----------------------MAIN-----------------------*/
 main{
     display: grid;
     grid-template-columns: 1fr 5fr;
 }
 
-
-
-
-
-/*
-#main-container main{
-    background-color:var(--fondo-b);
-    grid-column: 1/4;
+.noCotizaciones{
+color: rgba(255, 255, 255, 0.5);
+text-align: center;
+text-transform: uppercase;
 }
 
-#mid-section{
+/*-----------------------CONTENEDORES DE COTIZACION-----------------------*/
+
+#lista-monedas{
     display: grid;
-    grid-template-columns: 250px;
-    max-width: 250px;
-}*/
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+    margin: 0;
+    overflow-y:auto;
+    max-height: 600px;
+    margin-right: 20px;
+}
+
+#lista-monedas::-webkit-scrollbar{
+    background-color:var(--fondo-b);
+    border-radius: 20px;
+    scrollbar-width: thin;
+}
+
+#lista-monedas::-webkit-scrollbar-thumb{
+    background-color: var(--scroll);
+    border-radius: 20px;
+    scrollbar-width: thin;
+}
+
+#lista-monedas::-webkit-scrollbar-thumb:hover{
+    background-color: var(--scroll_oscuro_hover);
+    border-radius: 20px;
+    scrollbar-width: thin;
+}
+
+#lista-monedas li div{
+    display: grid;
+    padding: 20px;
+    grid-template-columns: 1.7fr repeat(2,1fr) 50px 90px;
+    max-height: 100px;
+}
+
+#lista-monedas div p{
+ justify-self: center;   
+ align-self: center;
+}
+
+#lista-monedas div button{
+ justify-self: center;   
+ align-self: center;
+}
+
+div h4{
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+}
+
+div .compra{
+    justify-self: center;
+    align-self: center;
+    margin: 0;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+div .venta{
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+#lista-monedas div{
+    background-color: #1d1e29;
+    color:#fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    min-width: 400px;
+}
+
+#contenido-principal ul li button img{
+    width: 20px;
+}
+
+#contenido-principal ul li button{
+    background-color:#1d1e29;
+    width: 40px;
+    border: none;   
+    justify-self: center;
+    cursor: pointer;
+}
+
+#contenedor-selector{
+    grid-column: 1/3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*-----------------------BOTON COMPARTIR Y MIGAS DE PAN-----------------------*/
+
+#share{
+    width: 5%;
+    background-color: var(--fondo-b);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid 2px rgba(0, 0, 0, 0);
+    margin-left: 95px;
+    cursor: pointer;
+}
+
+#share img{
+    width: 40px;
+}
+
+#share:hover{
+    transition: border-bottom 0.5s;
+    border-bottom: solid 2px var(--scroll_hover);
+}
+
+.migas-pan{
+    height: 20px;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.migas-pan span:hover{
+    color:var(--orange);
+}

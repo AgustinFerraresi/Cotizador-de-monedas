@@ -135,21 +135,7 @@ tr td button img{
     border-left: none;
     border-right: none;
     border-bottom: solid 2px rgba(0, 0, 0, 0);
-
 }
-
-/*#share{
-    width: 25%;
-    margin: 20px;
-    background-color: var(--fondo-b);
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: solid 2px rgba(0, 0, 0, 0);
-    grid-row: 4/5 ;
-    justify-self: center;
-    align-self: center;
-}*/
 
 #share img{
     width: 40px;
@@ -202,22 +188,6 @@ tr td button img{
 #cancelar{
     grid-row: 4/5;
     grid-column: 3/5;
-}
-
-.boton{
-    border: none;
-    background-color: var(--orange);
-    color: #fff;
-    text-transform: uppercase;
-    margin: 5px;
-    border-radius: 5px;
-    padding: 10px;
-}
-
-.boton:hover{
-    transition: background-color 0.5s;
-    background-color:rgb(235, 165, 14);
-    /*background-color:rgb(157, 108, 2);*/
 }
 
 .data{
