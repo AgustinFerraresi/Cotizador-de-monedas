@@ -2,38 +2,82 @@
 
 let datos = JSON.parse(localStorage.getItem("monedas"));
 
-console.log("datos")
-console.log(datos)
+//console.log("datos")
+//console.log(datos)
 
-let fechasDuplicadas = [];
+let fechasDuplicadas = []; //aca se guardan todas la fechas aunque sean repetidas
+let favs = []; // aca se guardaran las monedas seleccionadas como favoritas
 
-/*recorro el array datos tomando las fechas de cada item y guardandolas en fechasDuplicadas 
-*/
-for (let i = 0; i < datos.length; i++) {
+datos.forEach(cotizacion => {
+    if (cotizacion.estado) {
+        favs.push(cotizacion);
+    }
+});
+
+console.log("favs")
+console.log(favs)
+
+
+
+
+/*recorro el array datos tomando las fechas de cada item y guardandolas en fechasDuplicadas */
+for (let i = 0; i < favs.length; i++) {
     
-    let datosFecha = datos[i].fecha
+    let favsFecha = favs[i].fecha
     
-    let fecha = datosFecha.slice(0,10);
+    let fecha = favsFecha.slice(0,10);
     fechasDuplicadas.push(fecha);
 }
 
 //elimino los los duplicados de fechasDuplicadas gracias a que lo convierto en un set (conjunto)
 let setFechas = new Set(fechasDuplicadas);
-console.log(setFechas)
 
 //transformo el set setFechas en array nuevamente
-let fechas = Array.from(setFechas);
+let fechas = Array.from(setFechas).sort();
+console.log("fechas")
 console.log(fechas)
 
 
-//Axis X ["2024-06-29","2024-06-30","2024-07-1"]
 
-const etiquetas = fechas; //aca estaran todas las fechas que se usaron sin duplicados
+let blue = favs.filter(cotizacion => cotizacion.nombre == "Blue");
+
+console.log("dolar blue")
+console.log(blue)
+
+let compraBlue = []
+let ventaBlue = []
+
+let fechasBlue = []
+
+blue.forEach(cotizacion => {
+    //guardo las fechas del dolar blue
+    fechasBlue.push(cotizacion.fecha.slice(0,10));
+
+    let compra = cotizacion.compra;
+    let venta = cotizacion.venta;
+
+    //guardo los valores de compra/venta del blue en su array correspondiente
+    compraBlue.push(compra);
+    ventaBlue.push(venta);
+});
+
+
+//elimino repetidos
+let fechasBlueSet = new Set(fechasBlue);
+
+//fechasBlueSR = fechas blue sin repetir
+let fechasBlueSR = Array.from(fechasBlueSet);
+
+console.log("fechas dolar blue SR")
+console.log(fechasBlue)
+
+//Axis X 
+const etiquetas = fechasBlueSR; //aca estaran todas las fechas en las que se marco el blue como una moneda favorita sin repetir fechas
 
 //Datos
-const datosLinea1 = [1000, 1500, 1200, 200, 10, 20, 100];
-const datosLinea2 = [800, 1200, 1400, 180, 0, 50, 56];
-const datosLinea3 = [808, 1000, 140, 200, 20, 0, 80];
+const datosLinea1 = compraBlue;
+const datosLinea2 = ventaBlue;
+const datosLinea3 = [808, 1000, 1400, , 1800, 1900, 1700];
 const ctx = document.getElementById("miGrafica").getContext("2d");
 
 new Chart(ctx, {
@@ -43,65 +87,47 @@ new Chart(ctx, {
         datasets: [
             //Porción de código que se repite por cada ítem que se requiere dibujar
             { 
-                //Ejemplo de gráfica con relleno
-                label: "Dolar Blue",
+                label: "Dolar Blue (compra)",
                 data: datosLinea1,
-                borderColor: "rgba(54, 162, 235, 1)",
-                backgroundColor: 'rgba(54, 162, 235, 0.2)', // Color de fondo
-                borderWidth: 1,
-                fill: true
-
-            },
-            {
-                label: "Dolar Oficial",
-                data: datosLinea2,
                 borderColor: "green",
+                backgroundColor: '',
                 borderWidth: 1,
-                fill: false
-
+                fill: true,
+                hidden: false 
             },
             {
-                label: "Euro",
-                data: datosLinea3,
+                label: "Dolar Blue (venta)",
+                data: datosLinea2,
                 borderColor: "red",
-                fill: false
-                
-            }
+                backgroundColor: '',
+                borderWidth: 1,
+                fill: true,
+                hidden: false 
+            },
         ]
     }
 });
 
+/*me falta agregar los precio de manera dinamica tengo que ver como puedo modificar los atributos de los objetos*/
 
+/*-DE ESTA MANERA SE PUEDE ACCEDER A LOS ATRIBUTOS DE LOS OBJETOS DEL DATASETS
+ 
+document.getElementById("modificarDataset").addEventListener("click", () => {
+ 
+    Acceder al dataset "Dolar Oficial"
 
+    let dataset = chart.data.datasets[1]
 
+    // Modificar algunos de sus atributos
 
+    dataset.borderColor = "blue";
+    dataset.data = [90, 110, 130, 170, 20, 60, 70]; // Nuevos datos
+    dataset.label = "Dolar Oficial Modificado";
+    
+    // Actualizar la gráfica para reflejar los cambios ES 100% NECESARIO USAR CHART.UPDATE
+    chart.update();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+*/
 
 
 /*
@@ -123,6 +149,20 @@ en este caso simplemente hay que mostrar el precio de compra de todas las moneda
 para hacer todo esto seguramente tenga que ir creando dinamicamente los objetos desde cero, pero PRIMERO tengo que ver si puedo
 modificar los atributos de los objetos ya existentes quiza esto pueda hacer el trabajo mas facil
 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
