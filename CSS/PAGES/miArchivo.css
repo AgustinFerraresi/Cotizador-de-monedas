@@ -223,6 +223,7 @@ div .venta{
     align-items: center;
 }
 
+
 /*-----------------------BOTON COMPARTIR Y MIGAS DE PAN-----------------------*/
 
 #share{
@@ -254,3 +255,4 @@ div .venta{
 .migas-pan span:hover{
     color:var(--orange);
 }
+

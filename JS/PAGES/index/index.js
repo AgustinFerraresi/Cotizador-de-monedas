@@ -5,6 +5,13 @@ let listaMonedas = document.getElementById("lista-monedas");
 // Función para obtener datos almacenados en localStorage
 function obtenerDatosGuardados() {
     let datosGuardados = localStorage.getItem("monedas");
+
+    /*Si datosGuardados no es null (es decir, si hay datos almacenados en la key "monedas"),
+    lo convierte de una cadena JSON a su tipo de dato original
+    Si datosGuardados es null (osea queno hay datos almacenados), devuelve un array vacio el "?" actua como un if
+    y los ":" (dos puntos) actua como un else osea si la condiciones es verdadera se ejecuta el codigo que esta a la derecha
+    del "?" sino se ejecuta el codigo que esta a la deracha del ":"*/
+
     return datosGuardados ? JSON.parse(datosGuardados) : [];
 }
 
@@ -13,14 +20,27 @@ function guardarDatos(datos) {
     localStorage.setItem("monedas", JSON.stringify(datos));
 }
 
+function busquedaReversa(array, parametro) {
+    for (let i = array.length - 1; i >= 0; i--) {
+
+        if (array[i].id == parametro) {
+            return array[i];
+        }
+    }
+    return null;
+}
+
 async function main() {
     await llamadaApi();
+    
+    /*
     async function llamar() {
         await llamadaApi();
     }
     
     // Llamo cada 5 mins a la función para actualizar los datos de las cotizaciones 5 minutos son 300000
     setInterval(llamar,300000);
+    */
 
     if (select.value == "todas") {
         let i = 0;
@@ -100,15 +120,17 @@ async function main() {
 
     checkboxes.forEach(checkbox => {
         let img = document.getElementById(`img${checkbox.id}`);
-        let traigoCheckbox = datosGuardados.find(moneda => moneda.id === checkbox.id);
+        let traigoCheckbox = busquedaReversa(datosGuardados,checkbox.id);
 
-        if (traigoCheckbox && traigoCheckbox.estado === true) {
+        if (traigoCheckbox && traigoCheckbox.estado == true) {
             checkbox.checked = true;
             img.setAttribute("src", "..//IMG/marcado.png");
+            
         } else {
             checkbox.checked = false;
             img.setAttribute("src", "..//IMG/desmarcado.png");
         }
+        
     });
 
     // Se añade un listener a cada checkbox
@@ -278,4 +300,4 @@ select.onchange = mostrarMonedas;
 
 
 let x = localStorage.getItem("monedas");
-console.log(JSON.parse(x));
+//console.log(JSON.parse(x));
