@@ -43,7 +43,7 @@ let blue = favs.filter(cotizacion => cotizacion.nombre == "Blue"); //la comparac
 
 let compraBlue = []
 let ventaBlue = []
-let fechasBlue = []
+let fechasBlue = [] 
 
 blue.forEach(cotizacion => {
     //guardo las fechas del dolar blue
@@ -57,99 +57,72 @@ blue.forEach(cotizacion => {
     ventaBlue.push(venta);
 });
 
-//elimino repetidos
+//elimino repetidos creando un conjunto a partir del array fechasBlue
 let fechasBlueSet = new Set(fechasBlue);
 
-//fechasBlueSR = fechas blue sin repetir
-let fechasBlueSR = Array.from(fechasBlueSet);
-
-//console.log("fechas dolar blue SR")
-//console.log(fechasBlue)
+//transformo el conjunto fechasBlueSet en array | fechasBlueSR = fechas blue sin repetir
+let fechasBlueSR = Array.from(fechasBlueSet); //aca estaran todas las fechas sin repetir en las cuales se guardó la cotizacion del blue
 
 //---------------PREPARO LOS DATOS DEL OFICIAL---------------
 
 let oficial = favs.filter(cotizacion => cotizacion.nombre == "Oficial");
-
-//console.log("dolar blue")
-//console.log(blue)
 
 let compraOficial = []
 let ventaOficial = []
 let fechasOficial = []
 
 oficial.forEach(cotizacion => {
-    //guardo las fechas del Oficial
     fechasOficial.push(cotizacion.fecha.slice(0,10));
 
     let compra = cotizacion.compra;
     let venta = cotizacion.venta;
 
-    //guardo los valores de compra/venta del Oficial en su array correspondiente
     compraOficial.push(compra);
     ventaOficial.push(venta);
 });
 
-//elimino repetidos
 let fechasOficialSet = new Set(fechasOficial);
-
-//fechasOficialSR = fechas oficial sin repetir
 let fechasOficialSR = Array.from(fechasOficialSet);
-
-console.log("fechas dolar oficial SR")
-console.log(fechasOficialSR)
 
 //---------------PREPARO LOS DATOS DEL LLC---------------
 
 // en todos lados me equivoque y puse LLC en lugar de CCL (contado con luquidacion) y asi se va a quedar :)
-
 let lcc = favs.filter(cotizacion => cotizacion.nombre == "Contado con liquidación");
-
 let compraLCC = []
 let ventaLCC = []
 let fechasLCC = []
 
 lcc.forEach(cotizacion => {
-    //guardo las fechas del LCC
     fechasLCC.push(cotizacion.fecha.slice(0,10));
 
     let compra = cotizacion.compra;
     let venta = cotizacion.venta;
 
-    //guardo los valores de compra/venta del LCC en su array correspondiente
     compraLCC.push(compra);
     ventaLCC.push(venta);
 });
 
-//elimino repetidos
 let fechasLCCSet = new Set(fechasLCC);
-
-//fechasOficialSR = fechasLCC/ sin repetir
 let fechasLCCSR = Array.from(fechasLCCSet);
 
 //---------------PREPARO LOS DATOS DEL BOLSA---------------
 
 let bolsa = favs.filter(cotizacion => cotizacion.nombre == "Bolsa");
-
 let comprabolsa = []
 let ventabolsa = []
 let fechasbolsa = []
 
 bolsa.forEach(cotizacion => {
-    //guardo las fechas del bolsa
     fechasbolsa.push(cotizacion.fecha.slice(0,10));
 
     let compra = cotizacion.compra;
     let venta = cotizacion.venta;
 
-    //guardo los valores de compra/venta del bolsa en su array correspondiente
     comprabolsa.push(compra);
     ventabolsa.push(venta);
 });
 
-//elimino repetidos
 let fechasbolsaSet = new Set(fechasbolsa);
-
-//fechasOficialSR = fechas bolsa sin repetir
 let fechasbolsaSR = Array.from(fechasbolsaSet);
 
 //---------------PREPARO LOS DATOS DEL CRIPTO---------------
@@ -160,21 +133,16 @@ let ventacripto = []
 let fechascripto = []
 
 cripto.forEach(cotizacion => {
-    //guardo las fechas del cripto
     fechascripto.push(cotizacion.fecha.slice(0,10));
 
     let compra = cotizacion.compra;
     let venta = cotizacion.venta;
 
-    //guardo los valores de compra/venta del cripto en su array correspondiente
     compracripto.push(compra);
     ventacripto.push(venta);
 });
 
-//elimino repetidos
 let fechascriptoSet = new Set(fechascripto);
-
-//fechasOficialSR = fechas cripto sin repetir
 let fechascriptoSR = Array.from(fechascriptoSet);
 
 //---------------PREPARO LOS DATOS DEL TARJETA---------------
@@ -275,16 +243,7 @@ real.forEach(cotizacion => {
 let fechasrealSet = new Set(fechasreal);
 let fechasrealSR = Array.from(fechasrealSet);
 
-
-
-
-
-
-
-
-
-
-
+//---------------PREPARO LA GRAFICA---------------
 let grafico;
 let etiquetas;
  
@@ -321,8 +280,8 @@ let pesoUruguayoVenta = ventapesoUruguayo;
 
 let realCompra = comprareal;
 let realVenta = ventareal;
-const ctx = document.getElementById("miGrafica").getContext("2d");
 
+const ctx = document.getElementById("miGrafica").getContext("2d");
 grafico = new Chart(ctx, {
     type: "line",
     data: {
@@ -336,7 +295,7 @@ grafico = new Chart(ctx, {
                 backgroundColor: '',
                 borderWidth: 2,
                 fill: true,
-                hidden: false 
+                hidden: false
             },
             {
                 label: "Dolar Blue (venta)",
@@ -407,7 +366,7 @@ grafico = new Chart(ctx, {
                 hidden: false 
             },
 
-            //cripto 8 y 9 a dia de 5/7 solo hay una cotizacion guardada del dolar cripto en true asi que en la grafica solo aparecen 2 puntos para el dolar cripto
+            //cripto 8 y 9
             { 
                 label: "Cripto (compra)",
                 data: criptoCompra,
@@ -524,17 +483,17 @@ grafico = new Chart(ctx, {
                 backgroundColor: '',
                 borderWidth: 2,
                 fill: true,
-                hidden: false 
+                hidden: false
+                
             },
-
-
         ]
     }
 });
 
 
 let selectorMonedas = document.getElementById("selector-monedas");
-
+selectorMonedas.value = "todas"; //Por defecto al ingresar se mostrarán TODAS las monedas almacenadas
+main(); //primera llamada a la funcion para que se actulice la grafica
 selectorMonedas.onchange = main;
 
 //pude haber hecho todo esto con un for, si, pero no me di cuenta en su momento y hace 2 horas que estoy haciendolo
@@ -893,15 +852,82 @@ function main() {
             }
         }
         grafico.data.labels = fechas
-
     }
-    
-
-
-    
-
-
-
         // actualizo el grafico despues de modificar los datasets sino no se muestran los cambios
         grafico.update();
+}
+
+//---------------PREPARO LA GRILLA---------------
+
+// Función para filtrar objetos por el valor del atributo parametro
+function filtrador(array, parametroBuscar) {
+    return array.filter(cotizacion => cotizacion.nombre === parametroBuscar);
+}
+let tablaMain = document.getElementById("tabla-main");
+
+//en c/u de estas vars se va a guardar un array que contiene los objetos de las cotizaciones seleccionadas
+let cotizacionesBlue = filtrador(favs,"Blue");
+let cotizacionesOficial = filtrador(favs,"Oficial");
+let cotizacionesCCL = filtrador(favs,"Contado con liquidación");
+let cotizacionesBolsa = filtrador(favs,"Bolsa");
+let cotizacionesCripto = filtrador(favs,"Cripto");
+let cotizacionesTarjeta = filtrador(favs,"Tarjeta");
+let cotizacionesEuro = filtrador(favs,"Euro");
+let cotizacionesPesoChileno = filtrador(favs,"Peso Chileno");
+let cotizacionesPesoUruguayo = filtrador(favs,"Peso Uruguayo");
+let cotizacionesReales = filtrador(favs,"Real Brasileño");
+
+/*
+let tabla = document.createElement("tbody");
+for (let i = 0; i < cotizacionesBlue.length; i++) {
+    tabla.innerHTML=
+    `
+    <tr>
+        <td>${cotizacionesBlue[i].fecha.slice(0,10)}</td>
+        <td>$${cotizacionesBlue[i].compra}</td>
+        <td>$${cotizacionesBlue[i].venta}</td>
+        <td><button><img src="..//IMG/flecha_arriba.png" alt=""></button></td>
+    </tr>
+    `
+    tablaMain.appendChild(tabla);    
+    
+}
+*/
+let x = 0
+let j = 0;
+while (j < favs.length) {
+
+    if (favs[j].nombre == "Blue") {
+        let tabla = document.createElement("tr");
+        let fechaTabla = document.createElement("tr");
+
+        tabla.setAttribute("class",`${favs[j].nombre}`);
+        fechaTabla.setAttribute("class",`${favs[j].nombre}`);
+
+        tabla.innerHTML=
+        `
+        <td>${favs[j].fecha.slice(0,10)}</td>
+        <td>$${favs[j].compra}</td>
+        <td>$${favs[j].venta}</td>
+        <td><button><img src="..//IMG/flecha_arriba.png" alt=""></button></td>
+        `
+
+        
+        if (x == 0) {
+            fechaTabla.innerHTML=
+            `
+            <td class="fecha" class="${favs[j].nombre}"></td>
+            <td class="fecha" class="${favs[j].nombre}">${favs[j].nombre}</td>
+            <td class="fecha" class="${favs[j].nombre}"></td>
+            <td class="fecha" class="${favs[j].nombre}"></td>
+            `
+            x = 1
+        }
+        
+
+        tablaMain.appendChild(fechaTabla);
+        tablaMain.appendChild(tabla);
+
+    }
+    j = j+1;
 }
