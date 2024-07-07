@@ -41,9 +41,9 @@ let blue = favs.filter(cotizacion => cotizacion.nombre == "Blue"); //la comparac
 //console.log("dolar blue")
 //console.log(blue)
 
-let compraBlue = []
-let ventaBlue = []
-let fechasBlue = [] 
+let compraBlue = [] //aca se guardan todos los valores de compra de las cotizaciones del blue guardadas
+let ventaBlue = [] //aca los valores de venta
+let fechasBlue = [] //aca las fechas
 
 blue.forEach(cotizacion => {
     //guardo las fechas del dolar blue
@@ -877,57 +877,474 @@ let cotizacionesPesoChileno = filtrador(favs,"Peso Chileno");
 let cotizacionesPesoUruguayo = filtrador(favs,"Peso Uruguayo");
 let cotizacionesReales = filtrador(favs,"Real Brasileño");
 
-/*
-let tabla = document.createElement("tbody");
-for (let i = 0; i < cotizacionesBlue.length; i++) {
-    tabla.innerHTML=
-    `
-    <tr>
-        <td>${cotizacionesBlue[i].fecha.slice(0,10)}</td>
-        <td>$${cotizacionesBlue[i].compra}</td>
-        <td>$${cotizacionesBlue[i].venta}</td>
-        <td><button><img src="..//IMG/flecha_arriba.png" alt=""></button></td>
-    </tr>
-    `
-    tablaMain.appendChild(tabla);    
-    
-}
-*/
-let x = 0
-let j = 0;
-while (j < favs.length) {
-
-    if (favs[j].nombre == "Blue") {
+//cotizacionesBlue
+var x = 0
+var j = 0;
+while (j < cotizacionesBlue.length) {
+    //este if realmente no es necesario quedó de antes porque lo habia pesado hacer con un while que recorra a el array favs
+    if (cotizacionesBlue[j].nombre == "Blue") {
         let tabla = document.createElement("tr");
         let fechaTabla = document.createElement("tr");
 
-        tabla.setAttribute("class",`${favs[j].nombre}`);
-        fechaTabla.setAttribute("class",`${favs[j].nombre}`);
+        tabla.setAttribute("class",`${cotizacionesBlue[j].nombre}`);
+        fechaTabla.setAttribute("class",`${cotizacionesBlue[j].nombre}`);
+      
+        let precioAyer 
+        if (j > 0) {
+         precioAyer = cotizacionesBlue[j-1].venta
+        }else{
+         precioAyer = 0
+        }
+
 
         tabla.innerHTML=
         `
-        <td>${favs[j].fecha.slice(0,10)}</td>
-        <td>$${favs[j].compra}</td>
-        <td>$${favs[j].venta}</td>
-        <td><button><img src="..//IMG/flecha_arriba.png" alt=""></button></td>
+        <td>${cotizacionesBlue[j].fecha.slice(0,10)}</td>
+        <td>$${cotizacionesBlue[j].compra}</td>
+        <td>$${cotizacionesBlue[j].venta}</td>
+        <td><button><img src="${variacion(cotizacionesBlue[j].venta, precioAyer)}" alt="variacion"></button></td>
         `
+        //le paso el precion de venta de hoy y el de mañana para poder saber si la moneda
 
-        
         if (x == 0) {
             fechaTabla.innerHTML=
             `
-            <td class="fecha" class="${favs[j].nombre}"></td>
-            <td class="fecha" class="${favs[j].nombre}">${favs[j].nombre}</td>
-            <td class="fecha" class="${favs[j].nombre}"></td>
-            <td class="fecha" class="${favs[j].nombre}"></td>
+            <td class="fecha" class="${cotizacionesBlue[j].nombre}"></td>
+            <td class="fecha" class="${cotizacionesBlue[j].nombre}">${cotizacionesBlue[j].nombre}</td>
+            <td class="fecha" class="${cotizacionesBlue[j].nombre}"></td>
+            <td class="fecha" class="${cotizacionesBlue[j].nombre}"></td>
             `
             x = 1
         }
-        
-
         tablaMain.appendChild(fechaTabla);
         tablaMain.appendChild(tabla);
-
     }
     j = j+1;
 }
+//cotizacionesOficial
+var x = 0
+var j = 0;
+while (j < cotizacionesOficial.length) {
+
+    if (cotizacionesOficial[j].nombre == "Oficial") {
+        let tabla = document.createElement("tr");
+        let fechaTabla = document.createElement("tr");
+
+        tabla.setAttribute("class",`${cotizacionesOficial[j].nombre}`);
+        fechaTabla.setAttribute("class",`${cotizacionesOficial[j].nombre}`);
+      
+        let precioAyer 
+        if (j > 0) {
+         precioAyer = cotizacionesOficial[j-1].venta
+        }else{
+         precioAyer = 0
+        }
+
+
+        tabla.innerHTML=
+        `
+        <td>${cotizacionesOficial[j].fecha.slice(0,10)}</td>
+        <td>$${cotizacionesOficial[j].compra}</td>
+        <td>$${cotizacionesOficial[j].venta}</td>
+        <td><button><img src="${variacion(cotizacionesOficial[j].venta, precioAyer)}" alt="variacion"></button></td>
+        `
+        //le paso el precion de venta de hoy y el de mañana para poder saber si la moneda
+
+        if (x == 0) {
+            fechaTabla.innerHTML=
+            `
+            <td class="fecha" class="${cotizacionesOficial[j].nombre}"></td>
+            <td class="fecha" class="${cotizacionesOficial[j].nombre}">${cotizacionesOficial[j].nombre}</td>
+            <td class="fecha" class="${cotizacionesOficial[j].nombre}"></td>
+            <td class="fecha" class="${cotizacionesOficial[j].nombre}"></td>
+            `
+            x = 1
+        }
+        tablaMain.appendChild(fechaTabla);
+        tablaMain.appendChild(tabla);
+    }
+    j = j+1;
+}
+
+//cotizacionesCCL
+var x = 0
+var j = 0;
+while (j < cotizacionesCCL.length) {
+
+    if (cotizacionesCCL[j].nombre == "Contado con liquidación") {
+        let tabla = document.createElement("tr");
+        let fechaTabla = document.createElement("tr");
+
+        tabla.setAttribute("class",`${cotizacionesCCL[j].nombre}`);
+        fechaTabla.setAttribute("class",`${cotizacionesCCL[j].nombre}`);
+      
+        let precioAyer 
+        if (j > 0) {
+         precioAyer = cotizacionesCCL[j-1].venta
+        }else{
+         precioAyer = 0
+        }
+
+
+        tabla.innerHTML=
+        `
+        <td>${cotizacionesCCL[j].fecha.slice(0,10)}</td>
+        <td>$${cotizacionesCCL[j].compra}</td>
+        <td>$${cotizacionesCCL[j].venta}</td>
+        <td><button><img src="${variacion(cotizacionesCCL[j].venta, precioAyer)}" alt="variacion"></button></td>
+        `
+        //le paso el precion de venta de hoy y el de mañana para poder saber si la moneda
+
+        if (x == 0) {
+            fechaTabla.innerHTML=
+            `
+            <td class="fecha" class="${cotizacionesCCL[j].nombre}"></td>
+            <td class="fecha" class="${cotizacionesCCL[j].nombre}">CCL</td>
+            <td class="fecha" class="${cotizacionesCCL[j].nombre}"></td>
+            <td class="fecha" class="${cotizacionesCCL[j].nombre}"></td>
+            `
+            x = 1
+        }
+        tablaMain.appendChild(fechaTabla);
+        tablaMain.appendChild(tabla);
+    }
+    j = j+1;
+}
+
+//cotizacionesBOLSA
+var x = 0
+var j = 0;
+while (j < cotizacionesBolsa.length) {
+
+    if (cotizacionesBolsa[j].nombre == "Bolsa") {
+        let tabla = document.createElement("tr");
+        let fechaTabla = document.createElement("tr");
+
+        tabla.setAttribute("class",`${cotizacionesBolsa[j].nombre}`);
+        fechaTabla.setAttribute("class",`${cotizacionesBolsa[j].nombre}`);
+      
+        let precioAyer 
+        if (j > 0) {
+         precioAyer = cotizacionesBolsa[j-1].venta
+        }else{
+         precioAyer = 0
+        }
+
+
+        tabla.innerHTML=
+        `
+        <td>${cotizacionesBolsa[j].fecha.slice(0,10)}</td>
+        <td>$${cotizacionesBolsa[j].compra}</td>
+        <td>$${cotizacionesBolsa[j].venta}</td>
+        <td><button><img src="${variacion(cotizacionesBolsa[j].venta, precioAyer)}" alt="variacion"></button></td>
+        `
+        //le paso el precion de venta de hoy y el de mañana para poder saber si la moneda
+
+        if (x == 0) {
+            fechaTabla.innerHTML=
+            `
+            <td class="fecha" class="${cotizacionesBolsa[j].nombre}"></td>
+            <td class="fecha" class="${cotizacionesBolsa[j].nombre}">${cotizacionesBolsa[j].nombre}</td>
+            <td class="fecha" class="${cotizacionesBolsa[j].nombre}"></td>
+            <td class="fecha" class="${cotizacionesBolsa[j].nombre}"></td>
+            `
+            x = 1
+        }
+        tablaMain.appendChild(fechaTabla);
+        tablaMain.appendChild(tabla);
+    }
+    j = j+1;
+}
+
+//cotizacionesCripto
+var x = 0
+var j = 0;
+while (j < cotizacionesCripto.length) {
+
+    if (cotizacionesCripto[j].nombre == "Cripto") {
+        let tabla = document.createElement("tr");
+        let fechaTabla = document.createElement("tr");
+
+        tabla.setAttribute("class",`${cotizacionesCripto[j].nombre}`);
+        fechaTabla.setAttribute("class",`${cotizacionesCripto[j].nombre}`);
+      
+        let precioAyer 
+        if (j > 0) {
+         precioAyer = cotizacionesCripto[j-1].venta
+        }else{
+         precioAyer = 0
+        }
+
+
+        tabla.innerHTML=
+        `
+        <td>${cotizacionesCripto[j].fecha.slice(0,10)}</td>
+        <td>$${cotizacionesCripto[j].compra}</td>
+        <td>$${cotizacionesCripto[j].venta}</td>
+        <td><button><img src="${variacion(cotizacionesCripto[j].venta, precioAyer)}" alt="variacion"></button></td>
+        `
+        //le paso el precion de venta de hoy y el de mañana para poder saber si la moneda
+
+        if (x == 0) {
+            fechaTabla.innerHTML=
+            `
+            <td class="fecha" class="${cotizacionesCripto[j].nombre}"></td>
+            <td class="fecha" class="${cotizacionesCripto[j].nombre}">${cotizacionesCripto[j].nombre}</td>
+            <td class="fecha" class="${cotizacionesCripto[j].nombre}"></td>
+            <td class="fecha" class="${cotizacionesCripto[j].nombre}"></td>
+            `
+            x = 1
+        }
+        tablaMain.appendChild(fechaTabla);
+        tablaMain.appendChild(tabla);
+    }
+    j = j+1;
+}
+
+//cotizacionesTarjeta
+var x = 0
+var j = 0;
+while (j < cotizacionesTarjeta.length) {
+
+    if (cotizacionesTarjeta[j].nombre == "Tarjeta") {
+        let tabla = document.createElement("tr");
+        let fechaTabla = document.createElement("tr");
+
+        tabla.setAttribute("class",`${cotizacionesTarjeta[j].nombre}`);
+        fechaTabla.setAttribute("class",`${cotizacionesTarjeta[j].nombre}`);
+      
+        let precioAyer 
+        if (j > 0) {
+         precioAyer = cotizacionesTarjeta[j-1].venta
+        }else{
+         precioAyer = 0
+        }
+
+
+        tabla.innerHTML=
+        `
+        <td>${cotizacionesTarjeta[j].fecha.slice(0,10)}</td>
+        <td>$${cotizacionesTarjeta[j].compra}</td>
+        <td>$${cotizacionesTarjeta[j].venta}</td>
+        <td><button><img src="${variacion(cotizacionesTarjeta[j].venta, precioAyer)}" alt="variacion"></button></td>
+        `
+        //le paso el precion de venta de hoy y el de mañana para poder saber si la moneda
+
+        if (x == 0) {
+            fechaTabla.innerHTML=
+            `
+            <td class="fecha" class="${cotizacionesTarjeta[j].nombre}"></td>
+            <td class="fecha" class="${cotizacionesTarjeta[j].nombre}">${cotizacionesTarjeta[j].nombre}</td>
+            <td class="fecha" class="${cotizacionesTarjeta[j].nombre}"></td>
+            <td class="fecha" class="${cotizacionesTarjeta[j].nombre}"></td>
+            `
+            x = 1
+        }
+        tablaMain.appendChild(fechaTabla);
+        tablaMain.appendChild(tabla);
+    }
+    j = j+1;
+}
+
+//cotizacionesEURO
+var x = 0
+var j = 0;
+while (j < cotizacionesEuro.length) {
+
+    if (cotizacionesEuro[j].nombre == "Euro") {
+        let tabla = document.createElement("tr");
+        let fechaTabla = document.createElement("tr");
+
+        tabla.setAttribute("class",`${cotizacionesEuro[j].nombre}`);
+        fechaTabla.setAttribute("class",`${cotizacionesEuro[j].nombre}`);
+      
+        let precioAyer 
+        if (j > 0) {
+         precioAyer = cotizacionesEuro[j-1].venta
+        }else{
+         precioAyer = 0
+        }
+
+        tabla.innerHTML=
+        `
+        <td>${cotizacionesEuro[j].fecha.slice(0,10)}</td>
+        <td>$${cotizacionesEuro[j].compra}</td>
+        <td>$${cotizacionesEuro[j].venta}</td>
+        <td><button><img src="${variacion(cotizacionesEuro[j].venta, precioAyer)}" alt="variacion"></button></td>
+        `
+        //le paso el precion de venta de hoy y el de mañana para poder saber si la moneda
+
+        if (x == 0) {
+            fechaTabla.innerHTML=
+            `
+            <td class="fecha" class="${cotizacionesEuro[j].nombre}"></td>
+            <td class="fecha" class="${cotizacionesEuro[j].nombre}">${cotizacionesEuro[j].nombre}</td>
+            <td class="fecha" class="${cotizacionesEuro[j].nombre}"></td>
+            <td class="fecha" class="${cotizacionesEuro[j].nombre}"></td>
+            `
+            x = 1
+        }
+        tablaMain.appendChild(fechaTabla);
+        tablaMain.appendChild(tabla);
+    }
+    j = j+1;
+}
+
+//cotizacionesPesoChileno
+var x = 0
+var j = 0;
+while (j < cotizacionesPesoChileno.length) {
+
+    if (cotizacionesPesoChileno[j].nombre == "Peso Chileno") {
+        let tabla = document.createElement("tr");
+        let fechaTabla = document.createElement("tr");
+
+        tabla.setAttribute("class",`${cotizacionesPesoChileno[j].nombre}`);
+        fechaTabla.setAttribute("class",`${cotizacionesPesoChileno[j].nombre}`);
+      
+        let precioAyer 
+        if (j > 0) {
+         precioAyer = cotizacionesPesoChileno[j-1].venta
+        }else{
+         precioAyer = 0
+        }
+
+        tabla.innerHTML=
+        `
+        <td>${cotizacionesPesoChileno[j].fecha.slice(0,10)}</td>
+        <td>$${cotizacionesPesoChileno[j].compra}</td>
+        <td>$${cotizacionesPesoChileno[j].venta}</td>
+        <td><button><img src="${variacion(cotizacionesPesoChileno[j].venta, precioAyer)}" alt="variacion"></button></td>
+        `
+        //le paso el precion de venta de hoy y el de mañana para poder saber si la moneda
+
+        if (x == 0) {
+            fechaTabla.innerHTML=
+            `
+            <td class="fecha" class="${cotizacionesPesoChileno[j].nombre}"></td>
+            <td class="fecha" class="${cotizacionesPesoChileno[j].nombre}">CLP</td>
+            <td class="fecha" class="${cotizacionesPesoChileno[j].nombre}"></td>
+            <td class="fecha" class="${cotizacionesPesoChileno[j].nombre}"></td>
+            `
+            x = 1
+        }
+        tablaMain.appendChild(fechaTabla);
+        tablaMain.appendChild(tabla);
+    }
+    j = j+1;
+}
+
+//cotizacionesPesoUruguayo
+var x = 0
+var j = 0;
+while (j < cotizacionesPesoUruguayo.length) {
+
+    if (cotizacionesPesoUruguayo[j].nombre == "Peso Uruguayo") {
+        let tabla = document.createElement("tr");
+        let fechaTabla = document.createElement("tr");
+
+        tabla.setAttribute("class",`${cotizacionesPesoUruguayo[j].nombre}`);
+        fechaTabla.setAttribute("class",`${cotizacionesPesoUruguayo[j].nombre}`);
+      
+        let precioAyer 
+        if (j > 0) {
+         precioAyer = cotizacionesPesoUruguayo[j-1].venta
+        }else{
+         precioAyer = 0
+        }
+
+        tabla.innerHTML=
+        `
+        <td>${cotizacionesPesoUruguayo[j].fecha.slice(0,10)}</td>
+        <td>$${cotizacionesPesoUruguayo[j].compra}</td>
+        <td>$${cotizacionesPesoUruguayo[j].venta}</td>
+        <td><button><img src="${variacion(cotizacionesPesoUruguayo[j].venta, precioAyer)}" alt="variacion"></button></td>
+        `
+        //le paso el precion de venta de hoy y el de mañana para poder saber si la moneda
+
+        if (x == 0) {
+            fechaTabla.innerHTML=
+            `
+            <td class="fecha" class="${cotizacionesPesoUruguayo[j].nombre}"></td>
+            <td class="fecha" class="${cotizacionesPesoUruguayo[j].nombre}">UYN</td>
+            <td class="fecha" class="${cotizacionesPesoUruguayo[j].nombre}"></td>
+            <td class="fecha" class="${cotizacionesPesoUruguayo[j].nombre}"></td>
+            `
+            x = 1
+        }
+        tablaMain.appendChild(fechaTabla);
+        tablaMain.appendChild(tabla);
+    }
+    j = j+1;
+}
+
+//cotizacionesReal
+var x = 0
+var j = 0;
+while (j < cotizacionesReales.length) {
+
+    if (cotizacionesReales[j].nombre == "Real Brasileño") {
+        let tabla = document.createElement("tr");
+        let fechaTabla = document.createElement("tr");
+
+        tabla.setAttribute("class",`${cotizacionesReales[j].nombre}`);
+        fechaTabla.setAttribute("class",`${cotizacionesReales[j].nombre}`);
+      
+        let precioAyer 
+        if (j > 0) {
+         precioAyer = cotizacionesReales[j-1].venta
+        }else{
+         precioAyer = 0
+        }
+
+        tabla.innerHTML=
+        `
+        <td>${cotizacionesReales[j].fecha.slice(0,10)}</td>
+        <td>$${cotizacionesReales[j].compra}</td>
+        <td>$${cotizacionesReales[j].venta}</td>
+        <td><button><img src="${variacion(cotizacionesReales[j].venta, precioAyer)}" alt="variacion"></button></td>
+        `
+        //le paso el precion de venta de hoy y el de mañana para poder saber si la moneda
+
+        if (x == 0) {
+            fechaTabla.innerHTML=
+            `
+            <td class="fecha" class="${cotizacionesReales[j].nombre}"></td>
+            <td class="fecha" class="${cotizacionesReales[j].nombre}">REAL</td>
+            <td class="fecha" class="${cotizacionesReales[j].nombre}"></td>
+            <td class="fecha" class="${cotizacionesReales[j].nombre}"></td>
+            `
+            x = 1
+        }
+        tablaMain.appendChild(fechaTabla);
+        tablaMain.appendChild(tabla);
+    }
+    j = j+1;
+}
+
+
+function variacion(hoy,ayer) {
+    console.log("hoy",hoy)
+    console.log("ayer",ayer)
+    
+    let variacion = hoy-ayer
+
+    console.log("variacion",variacion)
+
+    if (variacion >= 0) {
+        return "..//IMG/flecha_arriba.png" 
+    }else{
+        return "..//IMG/flecha_abajo.png"
+    }
+}
+
+
+
+
+/*
+VARIACION DE LAS COTIZACIONES
+para hacer esto se me ocurre crear una funcion que haga la resta entre el valor de la cotizacion de hoy y anterior a el guardada y si
+el resultado es positivo quiere decir que el valor de la moneda aumento (está a la alza), si el valor es negativo quiere decir que la 
+moneda bajo (está a la baja) ej hoy es dia 6/7 el valor es de 1000 y la cotizacion anterior tiene fecha del 3/7 y su valor es de 900
+1000 - 900 = 100 valor positivo la moneda esta a la alza
+*/
