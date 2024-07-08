@@ -1,5 +1,5 @@
 "use strict";
-
+let todas = document.getElementsByClassName("todas");
 let datos = JSON.parse(localStorage.getItem("monedas"));
 
 //console.log("datos")
@@ -496,368 +496,11 @@ selectorMonedas.value = "todas"; //Por defecto al ingresar se mostrarán TODAS l
 main(); //primera llamada a la funcion para que se actulice la grafica
 selectorMonedas.onchange = main;
 
-//pude haber hecho todo esto con un for, si, pero no me di cuenta en su momento y hace 2 horas que estoy haciendolo
-//asi va a quedar :), por lo menos por ahora
-function main() {
-    if (selectorMonedas.value == "dolar-blue") {
-        //blue
-        grafico.data.datasets[0].hidden = false;
-        grafico.data.datasets[1].hidden = false;
-        //oficial
-        grafico.data.datasets[2].hidden = true;
-        grafico.data.datasets[3].hidden = true;
-        //lcc
-        grafico.data.datasets[4].hidden = true;
-        grafico.data.datasets[5].hidden = true;
-        //bolsa
-        grafico.data.datasets[6].hidden = true;
-        grafico.data.datasets[7].hidden = true;
-        //cripto
-        grafico.data.datasets[8].hidden = true;
-        grafico.data.datasets[9].hidden = true;
-        //tarjeta
-        grafico.data.datasets[10].hidden = true;
-        grafico.data.datasets[11].hidden = true;
-        //euro
-        grafico.data.datasets[12].hidden = true;
-        grafico.data.datasets[13].hidden = true;
-        //peso chileno
-        grafico.data.datasets[14].hidden = true;
-        grafico.data.datasets[15].hidden = true;
-        //peso uruguayo
-        grafico.data.datasets[16].hidden = true;
-        grafico.data.datasets[17].hidden = true;
-        //real
-        grafico.data.datasets[18].hidden = true;
-        grafico.data.datasets[19].hidden = true;
-
-        grafico.data.labels = fechasBlueSR
-
-    }else if (selectorMonedas.value == "dolar-oficial"){
-        //blue
-        grafico.data.datasets[0].hidden = true;
-        grafico.data.datasets[1].hidden = true;
-        //oficial
-        grafico.data.datasets[2].hidden = false;
-        grafico.data.datasets[3].hidden = false;
-        //ccl
-        grafico.data.datasets[4].hidden = true;
-        grafico.data.datasets[5].hidden = true;
-        //bolsa
-        grafico.data.datasets[6].hidden = true;
-        grafico.data.datasets[7].hidden = true;
-        //cripto
-        grafico.data.datasets[8].hidden = true;
-        grafico.data.datasets[9].hidden = true;
-        //tarjeta
-        grafico.data.datasets[10].hidden = true;
-        grafico.data.datasets[11].hidden = true;
-        //euro
-        grafico.data.datasets[12].hidden = true;
-        grafico.data.datasets[13].hidden = true;
-        //peso chileno
-        grafico.data.datasets[14].hidden = true;
-        grafico.data.datasets[15].hidden = true;
-        //peso uruguayo
-        grafico.data.datasets[16].hidden = true;
-        grafico.data.datasets[17].hidden = true;
-        //real
-        grafico.data.datasets[18].hidden = true;
-        grafico.data.datasets[19].hidden = true;
-
-        grafico.data.labels = fechasOficialSR
-
-    }else if (selectorMonedas.value == "dolar-lcc"){
-        //blue
-        grafico.data.datasets[0].hidden = true;
-        grafico.data.datasets[1].hidden = true;
-        //oficial
-        grafico.data.datasets[2].hidden = true;
-        grafico.data.datasets[3].hidden = true;
-        //llc
-        grafico.data.datasets[4].hidden = false;
-        grafico.data.datasets[5].hidden = false;
-        //bolsa
-        grafico.data.datasets[6].hidden = true;
-        grafico.data.datasets[7].hidden = true;
-        //cripto
-        grafico.data.datasets[8].hidden = true;
-        grafico.data.datasets[9].hidden = true;
-        //tarjeta
-        grafico.data.datasets[10].hidden = true;
-        grafico.data.datasets[11].hidden = true;
-        //euro
-        grafico.data.datasets[12].hidden = true;
-        grafico.data.datasets[13].hidden = true;
-        //peso chileno
-        grafico.data.datasets[14].hidden = true;
-        grafico.data.datasets[15].hidden = true;
-        //peso uruguayo
-        grafico.data.datasets[16].hidden = true;
-        grafico.data.datasets[17].hidden = true;
-        //real
-        grafico.data.datasets[18].hidden = true;
-        grafico.data.datasets[19].hidden = true;
-
-        grafico.data.labels = fechasLCCSR
-
-    }else if (selectorMonedas.value == "dolar-bolsa"){
-        //blue
-        grafico.data.datasets[0].hidden = true;
-        grafico.data.datasets[1].hidden = true;
-        //oficial
-        grafico.data.datasets[2].hidden = true;
-        grafico.data.datasets[3].hidden = true;
-        //llc
-        grafico.data.datasets[4].hidden = true;
-        grafico.data.datasets[5].hidden = true;
-        //bolsa
-        grafico.data.datasets[6].hidden = false;
-        grafico.data.datasets[7].hidden = false;
-        //cripto
-        grafico.data.datasets[8].hidden = true;
-        grafico.data.datasets[9].hidden = true;
-        //tarjeta
-        grafico.data.datasets[10].hidden = true;
-        grafico.data.datasets[11].hidden = true;
-        //euro
-        grafico.data.datasets[12].hidden = true;
-        grafico.data.datasets[13].hidden = true;
-        //peso chileno
-        grafico.data.datasets[14].hidden = true;
-        grafico.data.datasets[15].hidden = true;
-        //peso uruguayo
-        grafico.data.datasets[16].hidden = true;
-        grafico.data.datasets[17].hidden = true;
-        //real
-        grafico.data.datasets[18].hidden = true;
-        grafico.data.datasets[19].hidden = true;
-
-        grafico.data.labels = fechasbolsaSR
-
-    }else if (selectorMonedas.value == "dolar-cripto"){
-        //blue
-        grafico.data.datasets[0].hidden = true;
-        grafico.data.datasets[1].hidden = true;
-        //oficial
-        grafico.data.datasets[2].hidden = true;
-        grafico.data.datasets[3].hidden = true;
-        //llc
-        grafico.data.datasets[4].hidden = true;
-        grafico.data.datasets[5].hidden = true;
-        //bolsa
-        grafico.data.datasets[6].hidden = true;
-        grafico.data.datasets[7].hidden = true;
-        //cripto
-        grafico.data.datasets[8].hidden = false;
-        grafico.data.datasets[9].hidden = false;
-        //tarjeta
-        grafico.data.datasets[10].hidden = true;
-        grafico.data.datasets[11].hidden = true;
-        //euro
-        grafico.data.datasets[12].hidden = true;
-        grafico.data.datasets[13].hidden = true;
-        //peso chileno
-        grafico.data.datasets[14].hidden = true;
-        grafico.data.datasets[15].hidden = true;
-        //peso uruguayo
-        grafico.data.datasets[16].hidden = true;
-        grafico.data.datasets[17].hidden = true;
-        //real
-        grafico.data.datasets[18].hidden = true;
-        grafico.data.datasets[19].hidden = true;
-
-        grafico.data.labels = fechascriptoSR
-
-    }else if (selectorMonedas.value == "dolar-tarjeta"){
-        //blue
-        grafico.data.datasets[0].hidden = true;
-        grafico.data.datasets[1].hidden = true;
-        //oficial
-        grafico.data.datasets[2].hidden = true;
-        grafico.data.datasets[3].hidden = true;
-        //llc
-        grafico.data.datasets[4].hidden = true;
-        grafico.data.datasets[5].hidden = true;
-        //bolsa
-        grafico.data.datasets[6].hidden = true;
-        grafico.data.datasets[7].hidden = true;
-        //cripto
-        grafico.data.datasets[8].hidden = true;
-        grafico.data.datasets[9].hidden = true;
-        //tarjeta
-        grafico.data.datasets[10].hidden = false;
-        grafico.data.datasets[11].hidden = false;
-        //euro
-        grafico.data.datasets[12].hidden = true;
-        grafico.data.datasets[13].hidden = true;
-        //peso chileno
-        grafico.data.datasets[14].hidden = true;
-        grafico.data.datasets[15].hidden = true;
-        //peso uruguayo
-        grafico.data.datasets[16].hidden = true;
-        grafico.data.datasets[17].hidden = true;
-        //real
-        grafico.data.datasets[18].hidden = true;
-        grafico.data.datasets[19].hidden = true;
-
-        grafico.data.labels = fechastarjetaSR
-
-    }else if (selectorMonedas.value == "euro"){
-        //blue
-        grafico.data.datasets[0].hidden = true;
-        grafico.data.datasets[1].hidden = true;
-        //oficial
-        grafico.data.datasets[2].hidden = true;
-        grafico.data.datasets[3].hidden = true;
-        //llc
-        grafico.data.datasets[4].hidden = true;
-        grafico.data.datasets[5].hidden = true;
-        //bolsa
-        grafico.data.datasets[6].hidden = true;
-        grafico.data.datasets[7].hidden = true;
-        //cripto
-        grafico.data.datasets[8].hidden = true;
-        grafico.data.datasets[9].hidden = true;
-        //tarjeta
-        grafico.data.datasets[10].hidden = true;
-        grafico.data.datasets[11].hidden = true;
-        //euro
-        grafico.data.datasets[12].hidden = false;
-        grafico.data.datasets[13].hidden = false;
-        //peso chileno
-        grafico.data.datasets[14].hidden = true;
-        grafico.data.datasets[15].hidden = true;
-        //peso uruguayo
-        grafico.data.datasets[16].hidden = true;
-        grafico.data.datasets[17].hidden = true;
-        //real
-        grafico.data.datasets[18].hidden = true;
-        grafico.data.datasets[19].hidden = true;
-
-        grafico.data.labels = fechaseuroSR
-
-    }else if (selectorMonedas.value == "peso-chileno"){
-        //blue
-        grafico.data.datasets[0].hidden = true;
-        grafico.data.datasets[1].hidden = true;
-        //oficial
-        grafico.data.datasets[2].hidden = true;
-        grafico.data.datasets[3].hidden = true;
-        //llc
-        grafico.data.datasets[4].hidden = true;
-        grafico.data.datasets[5].hidden = true;
-        //bolsa
-        grafico.data.datasets[6].hidden = true;
-        grafico.data.datasets[7].hidden = true;
-        //cripto
-        grafico.data.datasets[8].hidden = true;
-        grafico.data.datasets[9].hidden = true;
-        //tarjeta
-        grafico.data.datasets[10].hidden = true;
-        grafico.data.datasets[11].hidden = true;
-        //euro
-        grafico.data.datasets[12].hidden = true;
-        grafico.data.datasets[13].hidden = true;
-        //peso chileno
-        grafico.data.datasets[14].hidden = false;
-        grafico.data.datasets[15].hidden = false;
-        //peso uruguayo
-        grafico.data.datasets[16].hidden = true;
-        grafico.data.datasets[17].hidden = true;
-        //real
-        grafico.data.datasets[18].hidden = true;
-        grafico.data.datasets[19].hidden = true;
-
-        grafico.data.labels = fechaspesoChilenoSR
-
-    }else if (selectorMonedas.value == "peso-uruguayo"){
-        //blue
-        grafico.data.datasets[0].hidden = true;
-        grafico.data.datasets[1].hidden = true;
-        //oficial
-        grafico.data.datasets[2].hidden = true;
-        grafico.data.datasets[3].hidden = true;
-        //llc
-        grafico.data.datasets[4].hidden = true;
-        grafico.data.datasets[5].hidden = true;
-        //bolsa
-        grafico.data.datasets[6].hidden = true;
-        grafico.data.datasets[7].hidden = true;
-        //cripto
-        grafico.data.datasets[8].hidden = true;
-        grafico.data.datasets[9].hidden = true;
-        //tarjeta
-        grafico.data.datasets[10].hidden = true;
-        grafico.data.datasets[11].hidden = true;
-        //euro
-        grafico.data.datasets[12].hidden = true;
-        grafico.data.datasets[13].hidden = true;
-        //peso chileno
-        grafico.data.datasets[14].hidden = true;
-        grafico.data.datasets[15].hidden = true;
-        //peso uruguayo
-        grafico.data.datasets[16].hidden = false;
-        grafico.data.datasets[17].hidden = false;
-        //real
-        grafico.data.datasets[18].hidden = true;
-        grafico.data.datasets[19].hidden = true;
-
-        grafico.data.labels = fechaspesoUruguayoSR
-
-    }else if (selectorMonedas.value == "reales"){
-        //blue
-        grafico.data.datasets[0].hidden = true;
-        grafico.data.datasets[1].hidden = true;
-        //oficial
-        grafico.data.datasets[2].hidden = true;
-        grafico.data.datasets[3].hidden = true;
-        //llc
-        grafico.data.datasets[4].hidden = true;
-        grafico.data.datasets[5].hidden = true;
-        //bolsa
-        grafico.data.datasets[6].hidden = true;
-        grafico.data.datasets[7].hidden = true;
-        //cripto
-        grafico.data.datasets[8].hidden = true;
-        grafico.data.datasets[9].hidden = true;
-        //tarjeta
-        grafico.data.datasets[10].hidden = true;
-        grafico.data.datasets[11].hidden = true;
-        //euro
-        grafico.data.datasets[12].hidden = true;
-        grafico.data.datasets[13].hidden = true;
-        //peso chileno
-        grafico.data.datasets[14].hidden = true;
-        grafico.data.datasets[15].hidden = true;
-        //peso uruguayo
-        grafico.data.datasets[16].hidden = true;
-        grafico.data.datasets[17].hidden = true;
-        //real
-        grafico.data.datasets[18].hidden = false;
-        grafico.data.datasets[19].hidden = false;
-
-        grafico.data.labels = fechasrealSR
-
-    }else if (selectorMonedas.value == "todas"){
-        /*los valores de compra estan en posiciones pares por lo que si el resto de dividir "i" en dos es 0 quiere decir
-        que estamos iterando en un valor par osea en un valor de compra los cuales se tienen que mostrar si el 
-        select esta en "todas"*/
-
-        for (let i = 0; i < grafico.data.datasets.length; i++) {
-            if (i % 2 == 0 ) {
-                grafico.data.datasets[i].hidden = false;
-            }else{
-                grafico.data.datasets[i].hidden = true;
-            }
-        }
-        grafico.data.labels = fechas
-    }
-        // actualizo el grafico despues de modificar los datasets sino no se muestran los cambios
-        grafico.update();
-}
 
 //---------------PREPARO LA GRILLA---------------
+
+
+
 
 // Función para filtrar objetos por el valor del atributo parametro
 function filtrador(array, parametroBuscar) {
@@ -886,8 +529,8 @@ while (j < cotizacionesBlue.length) {
         let tabla = document.createElement("tr");
         let fechaTabla = document.createElement("tr");
 
-        tabla.setAttribute("class",`${cotizacionesBlue[j].nombre}`);
-        fechaTabla.setAttribute("class",`${cotizacionesBlue[j].nombre}`);
+        tabla.setAttribute("class",`${cotizacionesBlue[j].nombre} todas`, );
+        fechaTabla.setAttribute("class",`${cotizacionesBlue[j].nombre} todas`);
       
         let precioAyer 
         if (j > 0) {
@@ -930,8 +573,8 @@ while (j < cotizacionesOficial.length) {
         let tabla = document.createElement("tr");
         let fechaTabla = document.createElement("tr");
 
-        tabla.setAttribute("class",`${cotizacionesOficial[j].nombre}`);
-        fechaTabla.setAttribute("class",`${cotizacionesOficial[j].nombre}`);
+        tabla.setAttribute("class",`${cotizacionesOficial[j].nombre} todas`);
+        fechaTabla.setAttribute("class",`${cotizacionesOficial[j].nombre} todas`);
       
         let precioAyer 
         if (j > 0) {
@@ -975,8 +618,8 @@ while (j < cotizacionesCCL.length) {
         let tabla = document.createElement("tr");
         let fechaTabla = document.createElement("tr");
 
-        tabla.setAttribute("class",`${cotizacionesCCL[j].nombre}`);
-        fechaTabla.setAttribute("class",`${cotizacionesCCL[j].nombre}`);
+        tabla.setAttribute("class","ccl todas");
+        fechaTabla.setAttribute("class","ccl todas");
       
         let precioAyer 
         if (j > 0) {
@@ -1020,8 +663,8 @@ while (j < cotizacionesBolsa.length) {
         let tabla = document.createElement("tr");
         let fechaTabla = document.createElement("tr");
 
-        tabla.setAttribute("class",`${cotizacionesBolsa[j].nombre}`);
-        fechaTabla.setAttribute("class",`${cotizacionesBolsa[j].nombre}`);
+        tabla.setAttribute("class",`${cotizacionesBolsa[j].nombre} todas`);
+        fechaTabla.setAttribute("class",`${cotizacionesBolsa[j].nombre} todas`);
       
         let precioAyer 
         if (j > 0) {
@@ -1065,8 +708,8 @@ while (j < cotizacionesCripto.length) {
         let tabla = document.createElement("tr");
         let fechaTabla = document.createElement("tr");
 
-        tabla.setAttribute("class",`${cotizacionesCripto[j].nombre}`);
-        fechaTabla.setAttribute("class",`${cotizacionesCripto[j].nombre}`);
+        tabla.setAttribute("class",`${cotizacionesCripto[j].nombre} todas`);
+        fechaTabla.setAttribute("class",`${cotizacionesCripto[j].nombre} todas`);
       
         let precioAyer 
         if (j > 0) {
@@ -1110,8 +753,8 @@ while (j < cotizacionesTarjeta.length) {
         let tabla = document.createElement("tr");
         let fechaTabla = document.createElement("tr");
 
-        tabla.setAttribute("class",`${cotizacionesTarjeta[j].nombre}`);
-        fechaTabla.setAttribute("class",`${cotizacionesTarjeta[j].nombre}`);
+        tabla.setAttribute("class",`${cotizacionesTarjeta[j].nombre} todas`);
+        fechaTabla.setAttribute("class",`${cotizacionesTarjeta[j].nombre} todas`);
       
         let precioAyer 
         if (j > 0) {
@@ -1155,8 +798,8 @@ while (j < cotizacionesEuro.length) {
         let tabla = document.createElement("tr");
         let fechaTabla = document.createElement("tr");
 
-        tabla.setAttribute("class",`${cotizacionesEuro[j].nombre}`);
-        fechaTabla.setAttribute("class",`${cotizacionesEuro[j].nombre}`);
+        tabla.setAttribute("class",`${cotizacionesEuro[j].nombre} todas`);
+        fechaTabla.setAttribute("class",`${cotizacionesEuro[j].nombre} todas`);
       
         let precioAyer 
         if (j > 0) {
@@ -1199,8 +842,8 @@ while (j < cotizacionesPesoChileno.length) {
         let tabla = document.createElement("tr");
         let fechaTabla = document.createElement("tr");
 
-        tabla.setAttribute("class",`${cotizacionesPesoChileno[j].nombre}`);
-        fechaTabla.setAttribute("class",`${cotizacionesPesoChileno[j].nombre}`);
+        tabla.setAttribute("class","pesoChileno todas");
+        fechaTabla.setAttribute("class","pesoChileno todas");
       
         let precioAyer 
         if (j > 0) {
@@ -1243,8 +886,8 @@ while (j < cotizacionesPesoUruguayo.length) {
         let tabla = document.createElement("tr");
         let fechaTabla = document.createElement("tr");
 
-        tabla.setAttribute("class",`${cotizacionesPesoUruguayo[j].nombre}`);
-        fechaTabla.setAttribute("class",`${cotizacionesPesoUruguayo[j].nombre}`);
+        tabla.setAttribute("class","pesoUruguayo todas");
+        fechaTabla.setAttribute("class","pesoUruguayo todas");
       
         let precioAyer 
         if (j > 0) {
@@ -1287,8 +930,9 @@ while (j < cotizacionesReales.length) {
         let tabla = document.createElement("tr");
         let fechaTabla = document.createElement("tr");
 
-        tabla.setAttribute("class",`${cotizacionesReales[j].nombre}`);
-        fechaTabla.setAttribute("class",`${cotizacionesReales[j].nombre}`);
+        tabla.setAttribute("class","real todas");
+        fechaTabla.setAttribute("class","real todas");
+
       
         let precioAyer 
         if (j > 0) {
@@ -1322,14 +966,13 @@ while (j < cotizacionesReales.length) {
     j = j+1;
 }
 
-
 function variacion(hoy,ayer) {
-    console.log("hoy",hoy)
-    console.log("ayer",ayer)
+    //console.log("hoy",hoy)
+    //console.log("ayer",ayer)
     
     let variacion = hoy-ayer
 
-    console.log("variacion",variacion)
+    //console.log("variacion",variacion)
 
     if (variacion >= 0) {
         return "..//IMG/flecha_arriba.png" 
@@ -1338,13 +981,518 @@ function variacion(hoy,ayer) {
     }
 }
 
+//me trago todos los tr para poder mostrar/ocultar los que correspondan segun el valor del select
+let tablaBlue = document.getElementsByClassName("Blue");
+let tablaOficial = document.getElementsByClassName("Oficial");
+let tablaCCL = document.getElementsByClassName("ccl");
+let tablaBolsa = document.getElementsByClassName("Bolsa");
+let tablaCripto = document.getElementsByClassName("Cripto");
+let tablaTarjeta = document.getElementsByClassName("Tarjeta");
+let tablaEuro = document.getElementsByClassName("Euro");
+let tablaPesoChileno = document.getElementsByClassName("pesoChileno");
+let tablaPesoUruguayo = document.getElementsByClassName("pesoUruguayo");
+let tablaReal = document.getElementsByClassName("real");
 
 
 
-/*
-VARIACION DE LAS COTIZACIONES
-para hacer esto se me ocurre crear una funcion que haga la resta entre el valor de la cotizacion de hoy y anterior a el guardada y si
-el resultado es positivo quiere decir que el valor de la moneda aumento (está a la alza), si el valor es negativo quiere decir que la 
-moneda bajo (está a la baja) ej hoy es dia 6/7 el valor es de 1000 y la cotizacion anterior tiene fecha del 3/7 y su valor es de 900
-1000 - 900 = 100 valor positivo la moneda esta a la alza
-*/
+let itemsTabla ={
+    Blue:tablaBlue,
+    Oficial:tablaOficial,
+    ccl:tablaCCL,
+    Bolsa:tablaBolsa,
+    Cripto:tablaCripto,
+    Tarjeta:tablaTarjeta,
+    Euro:tablaEuro,
+    pesoChileno:tablaPesoChileno,
+    pesoUruguayo:tablaPesoUruguayo,
+    real:tablaReal
+}
+
+function qsy() {
+    for (let i = 0; i < todas.length; i++) {
+        todas[i].style.display = "table-row";
+    }
+}
+
+//pude haber hecho todo esto con un for, si, pero no me di cuenta en su momento y hace 2 horas que estoy haciendolo
+//asi va a quedar :), por lo menos por ahora
+function main() {
+    if (selectorMonedas.value == "dolar-blue") {
+        //blue
+        grafico.data.datasets[0].hidden = false;
+        grafico.data.datasets[1].hidden = false;
+        //oficial
+        grafico.data.datasets[2].hidden = true;
+        grafico.data.datasets[3].hidden = true;
+        //lcc
+        grafico.data.datasets[4].hidden = true;
+        grafico.data.datasets[5].hidden = true;
+        //bolsa
+        grafico.data.datasets[6].hidden = true;
+        grafico.data.datasets[7].hidden = true;
+        //cripto
+        grafico.data.datasets[8].hidden = true;
+        grafico.data.datasets[9].hidden = true;
+        //tarjeta
+        grafico.data.datasets[10].hidden = true;
+        grafico.data.datasets[11].hidden = true;
+        //euro
+        grafico.data.datasets[12].hidden = true;
+        grafico.data.datasets[13].hidden = true;
+        //peso chileno
+        grafico.data.datasets[14].hidden = true;
+        grafico.data.datasets[15].hidden = true;
+        //peso uruguayo
+        grafico.data.datasets[16].hidden = true;
+        grafico.data.datasets[17].hidden = true;
+        //real
+        grafico.data.datasets[18].hidden = true;
+        grafico.data.datasets[19].hidden = true;
+
+        grafico.data.labels = fechasBlueSR
+
+        for (let key in itemsTabla) {
+            console.log("estoy en el for del blue")
+            if (key === "Blue") {
+                for (let element of itemsTabla[key]) {
+                    element.style.display = "table-row"; 
+                }
+            } else {
+                for (let element of itemsTabla[key]) {
+                    element.style.display = "none"; 
+                }
+            }
+        }
+
+    }else if (selectorMonedas.value == "dolar-oficial"){
+        //blue
+        grafico.data.datasets[0].hidden = true;
+        grafico.data.datasets[1].hidden = true;
+        //oficial
+        grafico.data.datasets[2].hidden = false;
+        grafico.data.datasets[3].hidden = false;
+        //ccl
+        grafico.data.datasets[4].hidden = true;
+        grafico.data.datasets[5].hidden = true;
+        //bolsa
+        grafico.data.datasets[6].hidden = true;
+        grafico.data.datasets[7].hidden = true;
+        //cripto
+        grafico.data.datasets[8].hidden = true;
+        grafico.data.datasets[9].hidden = true;
+        //tarjeta
+        grafico.data.datasets[10].hidden = true;
+        grafico.data.datasets[11].hidden = true;
+        //euro
+        grafico.data.datasets[12].hidden = true;
+        grafico.data.datasets[13].hidden = true;
+        //peso chileno
+        grafico.data.datasets[14].hidden = true;
+        grafico.data.datasets[15].hidden = true;
+        //peso uruguayo
+        grafico.data.datasets[16].hidden = true;
+        grafico.data.datasets[17].hidden = true;
+        //real
+        grafico.data.datasets[18].hidden = true;
+        grafico.data.datasets[19].hidden = true;
+
+        grafico.data.labels = fechasOficialSR
+
+        for (let key in itemsTabla) {
+            if (key === "Oficial") {
+                for (let element of itemsTabla[key]) {
+                    element.style.display = "table-row"; 
+                }
+            } else {
+                for (let element of itemsTabla[key]) {
+                    element.style.display = "none"; 
+                }
+            }
+        }
+
+    }else if (selectorMonedas.value == "dolar-lcc"){
+        //blue
+        grafico.data.datasets[0].hidden = true;
+        grafico.data.datasets[1].hidden = true;
+        //oficial
+        grafico.data.datasets[2].hidden = true;
+        grafico.data.datasets[3].hidden = true;
+        //llc
+        grafico.data.datasets[4].hidden = false;
+        grafico.data.datasets[5].hidden = false;
+        //bolsa
+        grafico.data.datasets[6].hidden = true;
+        grafico.data.datasets[7].hidden = true;
+        //cripto
+        grafico.data.datasets[8].hidden = true;
+        grafico.data.datasets[9].hidden = true;
+        //tarjeta
+        grafico.data.datasets[10].hidden = true;
+        grafico.data.datasets[11].hidden = true;
+        //euro
+        grafico.data.datasets[12].hidden = true;
+        grafico.data.datasets[13].hidden = true;
+        //peso chileno
+        grafico.data.datasets[14].hidden = true;
+        grafico.data.datasets[15].hidden = true;
+        //peso uruguayo
+        grafico.data.datasets[16].hidden = true;
+        grafico.data.datasets[17].hidden = true;
+        //real
+        grafico.data.datasets[18].hidden = true;
+        grafico.data.datasets[19].hidden = true;
+
+        grafico.data.labels = fechasLCCSR
+
+        for (let key in itemsTabla) {
+            if (key === "ccl") {
+                for (let element of itemsTabla[key]) {
+                    element.style.display = "table-row"; 
+                }
+            } else {
+                for (let element of itemsTabla[key]) {
+                    element.style.display = "none"; 
+                }
+            }
+        }
+
+    }else if (selectorMonedas.value == "dolar-bolsa"){
+        //blue
+        grafico.data.datasets[0].hidden = true;
+        grafico.data.datasets[1].hidden = true;
+        //oficial
+        grafico.data.datasets[2].hidden = true;
+        grafico.data.datasets[3].hidden = true;
+        //llc
+        grafico.data.datasets[4].hidden = true;
+        grafico.data.datasets[5].hidden = true;
+        //bolsa
+        grafico.data.datasets[6].hidden = false;
+        grafico.data.datasets[7].hidden = false;
+        //cripto
+        grafico.data.datasets[8].hidden = true;
+        grafico.data.datasets[9].hidden = true;
+        //tarjeta
+        grafico.data.datasets[10].hidden = true;
+        grafico.data.datasets[11].hidden = true;
+        //euro
+        grafico.data.datasets[12].hidden = true;
+        grafico.data.datasets[13].hidden = true;
+        //peso chileno
+        grafico.data.datasets[14].hidden = true;
+        grafico.data.datasets[15].hidden = true;
+        //peso uruguayo
+        grafico.data.datasets[16].hidden = true;
+        grafico.data.datasets[17].hidden = true;
+        //real
+        grafico.data.datasets[18].hidden = true;
+        grafico.data.datasets[19].hidden = true;
+
+        grafico.data.labels = fechasbolsaSR
+
+        for (let key in itemsTabla) {
+            if (key === "Bolsa") {
+                for (let element of itemsTabla[key]) {
+                    element.style.display = "table-row"; 
+                }
+            } else {
+                for (let element of itemsTabla[key]) {
+                    element.style.display = "none"; 
+                }
+            }
+        }
+
+    }else if (selectorMonedas.value == "dolar-cripto"){
+        //blue
+        grafico.data.datasets[0].hidden = true;
+        grafico.data.datasets[1].hidden = true;
+        //oficial
+        grafico.data.datasets[2].hidden = true;
+        grafico.data.datasets[3].hidden = true;
+        //llc
+        grafico.data.datasets[4].hidden = true;
+        grafico.data.datasets[5].hidden = true;
+        //bolsa
+        grafico.data.datasets[6].hidden = true;
+        grafico.data.datasets[7].hidden = true;
+        //cripto
+        grafico.data.datasets[8].hidden = false;
+        grafico.data.datasets[9].hidden = false;
+        //tarjeta
+        grafico.data.datasets[10].hidden = true;
+        grafico.data.datasets[11].hidden = true;
+        //euro
+        grafico.data.datasets[12].hidden = true;
+        grafico.data.datasets[13].hidden = true;
+        //peso chileno
+        grafico.data.datasets[14].hidden = true;
+        grafico.data.datasets[15].hidden = true;
+        //peso uruguayo
+        grafico.data.datasets[16].hidden = true;
+        grafico.data.datasets[17].hidden = true;
+        //real
+        grafico.data.datasets[18].hidden = true;
+        grafico.data.datasets[19].hidden = true;
+
+        grafico.data.labels = fechascriptoSR
+
+        for (let key in itemsTabla) {
+            if (key === "Cripto") {
+                for (let element of itemsTabla[key]) {
+                    element.style.display = "table-row"; 
+                }
+            } else {
+                for (let element of itemsTabla[key]) {
+                    element.style.display = "none"; 
+                }
+            }
+        }
+
+    }else if (selectorMonedas.value == "dolar-tarjeta"){
+        //blue
+        grafico.data.datasets[0].hidden = true;
+        grafico.data.datasets[1].hidden = true;
+        //oficial
+        grafico.data.datasets[2].hidden = true;
+        grafico.data.datasets[3].hidden = true;
+        //llc
+        grafico.data.datasets[4].hidden = true;
+        grafico.data.datasets[5].hidden = true;
+        //bolsa
+        grafico.data.datasets[6].hidden = true;
+        grafico.data.datasets[7].hidden = true;
+        //cripto
+        grafico.data.datasets[8].hidden = true;
+        grafico.data.datasets[9].hidden = true;
+        //tarjeta
+        grafico.data.datasets[10].hidden = false;
+        grafico.data.datasets[11].hidden = false;
+        //euro
+        grafico.data.datasets[12].hidden = true;
+        grafico.data.datasets[13].hidden = true;
+        //peso chileno
+        grafico.data.datasets[14].hidden = true;
+        grafico.data.datasets[15].hidden = true;
+        //peso uruguayo
+        grafico.data.datasets[16].hidden = true;
+        grafico.data.datasets[17].hidden = true;
+        //real
+        grafico.data.datasets[18].hidden = true;
+        grafico.data.datasets[19].hidden = true;
+
+        grafico.data.labels = fechastarjetaSR
+
+        for (let key in itemsTabla) {
+            if (key === "Tarjeta") {
+                for (let element of itemsTabla[key]) {
+                    element.style.display = "table-row"; 
+                }
+            } else {
+                for (let element of itemsTabla[key]) {
+                    element.style.display = "none"; 
+                }
+            }
+        }
+
+    }else if (selectorMonedas.value == "euro"){
+        //blue
+        grafico.data.datasets[0].hidden = true;
+        grafico.data.datasets[1].hidden = true;
+        //oficial
+        grafico.data.datasets[2].hidden = true;
+        grafico.data.datasets[3].hidden = true;
+        //llc
+        grafico.data.datasets[4].hidden = true;
+        grafico.data.datasets[5].hidden = true;
+        //bolsa
+        grafico.data.datasets[6].hidden = true;
+        grafico.data.datasets[7].hidden = true;
+        //cripto
+        grafico.data.datasets[8].hidden = true;
+        grafico.data.datasets[9].hidden = true;
+        //tarjeta
+        grafico.data.datasets[10].hidden = true;
+        grafico.data.datasets[11].hidden = true;
+        //euro
+        grafico.data.datasets[12].hidden = false;
+        grafico.data.datasets[13].hidden = false;
+        //peso chileno
+        grafico.data.datasets[14].hidden = true;
+        grafico.data.datasets[15].hidden = true;
+        //peso uruguayo
+        grafico.data.datasets[16].hidden = true;
+        grafico.data.datasets[17].hidden = true;
+        //real
+        grafico.data.datasets[18].hidden = true;
+        grafico.data.datasets[19].hidden = true;
+
+        grafico.data.labels = fechaseuroSR
+
+        for (let key in itemsTabla) {
+            if (key === "Euro") {
+                for (let element of itemsTabla[key]) {
+                    element.style.display = "table-row"; 
+                }
+            } else {
+                for (let element of itemsTabla[key]) {
+                    element.style.display = "none"; 
+                }
+            }
+        }
+
+    }else if (selectorMonedas.value == "peso-chileno"){
+        //blue
+        grafico.data.datasets[0].hidden = true;
+        grafico.data.datasets[1].hidden = true;
+        //oficial
+        grafico.data.datasets[2].hidden = true;
+        grafico.data.datasets[3].hidden = true;
+        //llc
+        grafico.data.datasets[4].hidden = true;
+        grafico.data.datasets[5].hidden = true;
+        //bolsa
+        grafico.data.datasets[6].hidden = true;
+        grafico.data.datasets[7].hidden = true;
+        //cripto
+        grafico.data.datasets[8].hidden = true;
+        grafico.data.datasets[9].hidden = true;
+        //tarjeta
+        grafico.data.datasets[10].hidden = true;
+        grafico.data.datasets[11].hidden = true;
+        //euro
+        grafico.data.datasets[12].hidden = true;
+        grafico.data.datasets[13].hidden = true;
+        //peso chileno
+        grafico.data.datasets[14].hidden = false;
+        grafico.data.datasets[15].hidden = false;
+        //peso uruguayo
+        grafico.data.datasets[16].hidden = true;
+        grafico.data.datasets[17].hidden = true;
+        //real
+        grafico.data.datasets[18].hidden = true;
+        grafico.data.datasets[19].hidden = true;
+
+        grafico.data.labels = fechaspesoChilenoSR
+
+        for (let key in itemsTabla) {
+            if (key === "pesoChileno") {
+                for (let element of itemsTabla[key]) {
+                    element.style.display = "table-row"; 
+                }
+            } else {
+                for (let element of itemsTabla[key]) {
+                    element.style.display = "none"; 
+                }
+            }
+        }
+
+    }else if (selectorMonedas.value == "peso-uruguayo"){
+        //blue
+        grafico.data.datasets[0].hidden = true;
+        grafico.data.datasets[1].hidden = true;
+        //oficial
+        grafico.data.datasets[2].hidden = true;
+        grafico.data.datasets[3].hidden = true;
+        //llc
+        grafico.data.datasets[4].hidden = true;
+        grafico.data.datasets[5].hidden = true;
+        //bolsa
+        grafico.data.datasets[6].hidden = true;
+        grafico.data.datasets[7].hidden = true;
+        //cripto
+        grafico.data.datasets[8].hidden = true;
+        grafico.data.datasets[9].hidden = true;
+        //tarjeta
+        grafico.data.datasets[10].hidden = true;
+        grafico.data.datasets[11].hidden = true;
+        //euro
+        grafico.data.datasets[12].hidden = true;
+        grafico.data.datasets[13].hidden = true;
+        //peso chileno
+        grafico.data.datasets[14].hidden = true;
+        grafico.data.datasets[15].hidden = true;
+        //peso uruguayo
+        grafico.data.datasets[16].hidden = false;
+        grafico.data.datasets[17].hidden = false;
+        //real
+        grafico.data.datasets[18].hidden = true;
+        grafico.data.datasets[19].hidden = true;
+
+        grafico.data.labels = fechaspesoUruguayoSR
+
+        for (let key in itemsTabla) {
+            if (key === "pesoUruguayo") {
+                for (let element of itemsTabla[key]) {
+                    element.style.display = "table-row"; 
+                }
+            } else {
+                for (let element of itemsTabla[key]) {
+                    element.style.display = "none"; 
+                }
+            }
+        }
+
+    }else if (selectorMonedas.value == "reales"){
+        //blue
+        grafico.data.datasets[0].hidden = true;
+        grafico.data.datasets[1].hidden = true;
+        //oficial
+        grafico.data.datasets[2].hidden = true;
+        grafico.data.datasets[3].hidden = true;
+        //llc
+        grafico.data.datasets[4].hidden = true;
+        grafico.data.datasets[5].hidden = true;
+        //bolsa
+        grafico.data.datasets[6].hidden = true;
+        grafico.data.datasets[7].hidden = true;
+        //cripto
+        grafico.data.datasets[8].hidden = true;
+        grafico.data.datasets[9].hidden = true;
+        //tarjeta
+        grafico.data.datasets[10].hidden = true;
+        grafico.data.datasets[11].hidden = true;
+        //euro
+        grafico.data.datasets[12].hidden = true;
+        grafico.data.datasets[13].hidden = true;
+        //peso chileno
+        grafico.data.datasets[14].hidden = true;
+        grafico.data.datasets[15].hidden = true;
+        //peso uruguayo
+        grafico.data.datasets[16].hidden = true;
+        grafico.data.datasets[17].hidden = true;
+        //real
+        grafico.data.datasets[18].hidden = false;
+        grafico.data.datasets[19].hidden = false;
+
+        grafico.data.labels = fechasrealSR
+
+        for (let key in itemsTabla) {
+            if (key === "real") {
+                for (let element of itemsTabla[key]) {
+                    element.style.display = "table-row"; 
+                }
+            } else {
+                for (let element of itemsTabla[key]) {
+                    element.style.display = "none"; 
+                }
+            }
+        }
+    }else if (selectorMonedas.value == "todas"){
+        /*los valores de compra estan en posiciones pares por lo que si el resto de dividir "i" en dos es 0 quiere decir
+        que estamos iterando en un valor par osea en un valor de compra los cuales se tienen que mostrar si el 
+        select esta en "todas"*/
+
+        for (let i = 0; i < grafico.data.datasets.length; i++) {
+            if (i % 2 == 0 ) {
+                grafico.data.datasets[i].hidden = false;
+            }else{
+                grafico.data.datasets[i].hidden = true;
+            }
+        }
+        grafico.data.labels = fechas
+        qsy();
+    }
+        // actualizo el grafico despues de modificar los datasets sino no se muestran los cambios
+        grafico.update();
+}
+
