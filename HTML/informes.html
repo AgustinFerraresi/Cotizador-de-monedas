@@ -23,6 +23,7 @@
                 <h1>Change Coins</h1>
             </a>
         </header>
+        <button id="share" title="compartir"><img src="..//IMG/compartir_blanco.png" alt="compartir"></button>
 
         <!--MAIN-->
         <main>
@@ -41,6 +42,7 @@
                     <option value="reales">reales</option>
                 </select>
 
+                <div></div>
                 <p class="migas-pan">
                     se encuentra en: <a href="index.html" class="migas-pan" target="_self"><span>Inicio</span></a> / Informes
                 </p>
@@ -78,18 +80,29 @@
                 </table>
             </div>
 
-            <div id="datos-destinatario">
-                <h3>datos del destinatario</h3>
-                <label for=""></label>
-                    <input type="text" name="nombre" id="nombre" class="data" placeholder="NOMBRE">
-               
-    
-                <label for="email"></label>
-                    <input type="email" placeholder="EMAIL" id="email" class="data">
+            <form id="form">
+                <h3>enviar mail</h3>
+                <div class="field" id="nombre"><!--de quien-->
+                  <label for="from_name"></label>
+                  <input type="text" name="from_name" id="from_name" placeholder="emisor">
+                </div>
 
-                <button type="submit" id="enviar" class="boton">Enviar</button>
-                <button id="cancelar" class="boton">Cancelar</button>
-            </div>
+                <div class="field" id="email"><!--a quien-->
+                  <label for="to_name"></label>
+                  <input type="text" name="to_name" id="to_name" placeholder="email destinatario">
+                </div>
+
+                <div class="field" id="mensaje"><!--mensaje-->
+                  <label for="message"></label>
+                  <input type="text" name="message" id="message" placeholder="mensaje...">
+                </div>
+
+              
+                <input type="submit" id="button" value="Send Email">
+                <input type="submit" id="cancelar" value="cancelar">
+
+              </form>
+
         </main>
 
         <!--FOOTER-->
@@ -136,6 +149,14 @@
             </div>
         </footer>
     </div>
+
+
+    <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <script type="text/javascript">
+    emailjs.init('OtKTWD26YGlUzvfcD')
+    </script>
+    
 </body>
 
 </html>

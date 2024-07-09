@@ -1,6 +1,7 @@
 "use strict";
 let todas = document.getElementsByClassName("todas");
 let datos = JSON.parse(localStorage.getItem("monedas"));
+let compartir = document.getElementById("share");
 
 //console.log("datos")
 //console.log(datos)
@@ -993,8 +994,6 @@ let tablaPesoChileno = document.getElementsByClassName("pesoChileno");
 let tablaPesoUruguayo = document.getElementsByClassName("pesoUruguayo");
 let tablaReal = document.getElementsByClassName("real");
 
-
-
 let itemsTabla ={
     Blue:tablaBlue,
     Oficial:tablaOficial,
@@ -1496,3 +1495,40 @@ function main() {
         grafico.update();
 }
 
+
+let boton = document.getElementById("share");
+let form = document.getElementById("form");
+let z = 0
+function envioEmail() {
+    if (z == 0) {
+        form.style.display = "grid";
+        z = 1
+    }else{
+        form.style.display = "none";
+        z = 0
+    }
+    
+}
+
+boton.onclick = envioEmail;
+
+const btn = document.getElementById('button');
+
+document.getElementById('form')
+ .addEventListener('submit', function(event) {
+   event.preventDefault();
+
+   btn.value = 'Sending...';
+
+   const serviceID = 'default_service';
+   const templateID = 'template_wh7n675';
+
+   emailjs.sendForm(serviceID, templateID, this)
+    .then(() => {
+      btn.value = 'Send Email';
+      alert('Sent!');
+    }, (err) => {
+      btn.value = 'Send Email';
+      alert(JSON.stringify(err));
+    });
+});

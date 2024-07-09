@@ -231,25 +231,7 @@ div .venta{
 
 /*-----------------------BOTON COMPARTIR Y MIGAS DE PAN-----------------------*/
 
-#share{
-    width: 5%;
-    background-color: var(--fondo-b);
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: solid 2px rgba(0, 0, 0, 0);
-    margin-left: 95px;
-    cursor: pointer;
-}
 
-#share img{
-    width: 40px;
-}
-
-#share:hover{
-    transition: border-bottom 0.5s;
-    border-bottom: solid 2px var(--scroll_hover);
-}
 
 .migas-pan{
     height: 20px;
