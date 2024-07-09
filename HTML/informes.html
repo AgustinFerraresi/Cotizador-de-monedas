@@ -8,24 +8,23 @@
     <link rel="stylesheet" href="..//CSS/COMMON/header&footer.css">
     <link rel="stylesheet" href="..//CSS/PAGES/informes.css">
     <link rel="icon" href="../IMG/logo.png">
-    <script src="..//JS/COMMON/comments.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js" defer></script>
-    <script src="..//JS/PAGES/informes.js" defer></script>
+    <script src="..//JS/PAGES/Informes/preparoDatos.js" defer></script>
+    <script src="..//JS/PAGES/Informes/grilla.js" defer></script>
+    <script src="..//JS/PAGES/Informes/informes.js" defer></script>
+    <script src="..//JS/COMMON/comments.js" defer></script>
 </head>
 
 <body>
 
     <div id="main-container">
-        <!--HEADER-->
         <header>
             <a href="index.html" title="Change Coins">
                 <img src="../IMG/logo2.jpg" alt="logo">
                 <h1>Change Coins</h1>
             </a>
         </header>
-        <button id="share" title="compartir"><img src="..//IMG/compartir_blanco.png" alt="compartir"></button>
 
-        <!--MAIN-->
         <main>
             <div id="contenedor-selector">
                 <select name="" id="selector-monedas">
@@ -100,10 +99,11 @@
               
                 <input type="submit" id="button" value="Send Email">
                 <input type="submit" id="cancelar" value="cancelar">
+            </form>
 
-              </form>
-
+            <button id="share" title="compartir"><img src="..//IMG/compartir_blanco.png" alt="compartir"></button>
         </main>
+
 
         <!--FOOTER-->
         <footer>
@@ -136,15 +136,13 @@
             </div>
 
             <div id="contenedor-nose">
-                <p>
-                    Change Coins24© TUP - Cátedra de LAB 2 - 2024
-                </p>
+                <p>Change Coins24© TUP - Cátedra de LAB 2 - 2024</p>
             </div>
 
             <div id="contenedor-nose2">
                 <p>
-                    <b>Developed by: </b><a href="https://www.linkedin.com/in/agustin-ferraresi-90983222a/"
-                        target="_blank">Agustin Ferraresi</a> (53029) 1TUP6 - 2024
+                    <b>Developed by: </b><a href="https://www.linkedin.com/in/agustin-ferraresi-90983222a/" 
+                    target="_blank">Agustin Ferraresi</a> (53029) 1TUP6 - 2024
                 </p>
             </div>
         </footer>
@@ -152,11 +150,7 @@
 
 
     <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
-    <script type="text/javascript">
-    emailjs.init('OtKTWD26YGlUzvfcD')
-    </script>
-    
+    <script type="text/javascript">emailjs.init('OtKTWD26YGlUzvfcD')</script>
 </body>
 
 </html>
