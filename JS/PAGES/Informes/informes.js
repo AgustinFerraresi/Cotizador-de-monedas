@@ -755,17 +755,17 @@ document.getElementById('form')
  .addEventListener('submit', function(event) {
    event.preventDefault();
 
-   btn.value = 'Sending...';
+   btn.value = 'Enviando...';
 
    const serviceID = 'default_service';
    const templateID = 'template_wh7n675';
 
    emailjs.sendForm(serviceID, templateID, this)
     .then(() => {
-      btn.value = 'Send Email';
-      alert('Sent!');
+      btn.value = 'Enviar';
+      alert('Correo enviado!');
     }, (err) => {
-      btn.value = 'Send Email';
+      btn.value = 'Enviar';
       alert(JSON.stringify(err));
     });
 });

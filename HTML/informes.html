@@ -78,9 +78,9 @@
                     </tr>
                 </table>
             </div>
-
+            
             <form id="form">
-                <h3>enviar mail</h3>
+                <h2>enviar mail</h2>
                 <div class="field" id="nombre"><!--de quien-->
                   <label for="from_name"></label>
                   <input type="text" name="from_name" id="from_name" placeholder="emisor">
@@ -88,19 +88,19 @@
 
                 <div class="field" id="email"><!--a quien-->
                   <label for="to_name"></label>
-                  <input type="text" name="to_name" id="to_name" placeholder="email destinatario">
+                  <input type="text" name="to_name" id="to_name" placeholder="destinatario">
                 </div>
 
                 <div class="field" id="mensaje"><!--mensaje-->
-                  <label for="message"></label>
+                  <label for="message" class="mensaje"></label>
                   <input type="text" name="message" id="message" placeholder="mensaje...">
                 </div>
 
               
-                <input type="submit" id="button" value="Send Email">
-                <input type="submit" id="cancelar" value="cancelar">
+                <input type="submit" id="button" class="boton" value="Enviar">
+                <input type="reset" id="cancelar" class="boton" value="cancelar">
             </form>
-
+            
             <button id="share" title="compartir"><img src="..//IMG/compartir_blanco.png" alt="compartir"></button>
         </main>
 
