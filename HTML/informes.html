@@ -83,7 +83,7 @@
                 <h2>enviar mail</h2>
                 <div class="field" id="nombre"><!--de quien-->
                   <label for="from_name"></label>
-                  <input type="text" name="from_name" id="from_name" placeholder="emisor">
+                  <input type="text" name="from_name" id="from_name" placeholder="emisor" required>
                 </div>
 
                 <div class="field" id="email"><!--a quien-->
@@ -93,7 +93,7 @@
 
                 <div class="field" id="mensaje"><!--mensaje-->
                   <label for="message" class="mensaje"></label>
-                  <input type="text" name="message" id="message" placeholder="mensaje...">
+                  <input type="text" name="message" id="message" placeholder="mensaje..." required>
                 </div>
 
               
@@ -147,7 +147,6 @@
             </div>
         </footer>
     </div>
-
 
     <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">emailjs.init('OtKTWD26YGlUzvfcD')</script>

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="..//CSS/COMMON/header&footer.css">
     <link rel="stylesheet" href="..//CSS/PAGES/contacto.css">
     <link rel="icon" href="../IMG/logo.png">
+    <script src="..//JS/PAGES/contacto/contacto.js" defer></script>
     <script src="..//JS/COMMON/comments.js" defer></script>
 </head>
 
@@ -47,24 +48,45 @@
 
             <div id="contenido-principal">
                 <h2>Contactenos</h2>
-                <form action="#">
-                    <label for="nombre" class="label-name">Nombre<br>
-                        <input type="text" name="name" id="nombre" class="data" placeholder="Ingrese su nombre">
-                    </label>
 
-                    <label for="apellido" class="label-apellido">Apellido<br>
-                        <input type="text" name="apellido" id="apellido" class="data" placeholder="Ingrese su apellido">
-                    </label>
+                <form id="form">
 
-                    <label for="email" class="label-email">Email<br>
-                        <input type="email" name="email" id="email" class="data" placeholder="email@example.com" required>
-                    </label>
+                    <div class="field"  id="nombre">
+                      <label for="to_name" class="label-name" >Nombre y apellido</label>
+                      <input type="text" name="to_name" class="data" id="to_name" placeholder="nombre y apellido" required>
+                    </div>
 
-                    <textarea name="mensaje" id="mensaje" class="data" placeholder="Ingrese su mensaje" required></textarea>
+                    <div class="field" id="email">
+                      <label for="from_name" id="label-email" class="label-email">email</label>
+                      <input type="email" name="from_name" class="data" id="from_name" placeholder="example@gmail.com">
+                    </div>
 
-                    <button type="submit" id="send" class="boton">Enviar</button>
+                    <textarea name="message" id="message" class="data" placeholder="Ingrese su mensaje" required></textarea>
+
+                    <button type="submit" id="send" class="boton" >Enviar</button>
                     <button type="reset" id="clean" class="boton">Limpiar</button>
+                  </form>
+
+
+
+
+
+
+
+
+            <!--<form action="#" id="form">
+                    <label for="from_name" class="label-name" id="from_name">Nombre y apellido<br>
+                        <input type="text" name="name" id="from_name" class="data" placeholder="Ingrese su nombre y apellido">
+                    </label>
+
+                    <label for="reply_to" class="label-email">Email<br>
+                        <input type="email" name="email" id="reply_to" class="data" placeholder="email@example.com" required>
+                    </label>
+
+
+                    
                 </form>
+            -->
             </div>
         </main>
 
@@ -112,6 +134,8 @@
             </div>
         </footer>
     </div>
-</body>
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">emailjs.init('OtKTWD26YGlUzvfcD')</script>
+</body>
 </html>

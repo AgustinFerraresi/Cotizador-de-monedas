@@ -53,42 +53,31 @@ main{
 }
 
 .label-name{
-    grid-column: 2/4;
-    grid-row: 1/2;
     align-self: end;
     text-transform: uppercase;
-}
-
-.label-apellido{
-    grid-column: 4/6;
-    grid-row: 1/2;
-    align-self: end;
-    text-transform: uppercase;
-    margin-left: 10px;
 }
 
 .label-email{
-    grid-row: 2/4;
-    grid-column: 2/6;
     align-self: center;
     text-transform: uppercase;
 }
 
+#nombre{
+    grid-column: 2/6;
+    grid-row: 1/2;
+    margin-bottom: 10px;
+}
+
 #email{
-    width: 100%;
-    background: none;
-    border: none;
-    border-bottom: 2px solid var(--orange);
-    color: #fff;
-    padding: 10px;
+    grid-column: 2/6;
+    grid-row: 2/4;
+    margin-top: 10px;
+    align-self: center;
 }
 
-#email:hover{
-    border-bottom:2px solid rgba(227, 204, 34,1);
-    transition: border-bottom 2s;
-}
 
-#mensaje{
+
+#message{
     grid-row: 4/5;
     grid-column: 2/6;
     height: 100%;
