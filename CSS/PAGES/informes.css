@@ -337,3 +337,10 @@ input:-webkit-autofill {
     display: none;
     
 }
+
+.noCotizaciones{
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    text-transform: uppercase;
+    }
+    

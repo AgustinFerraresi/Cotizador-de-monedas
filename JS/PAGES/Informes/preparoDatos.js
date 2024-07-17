@@ -3,20 +3,16 @@ let todas = document.getElementsByClassName("todas");
 let datos = JSON.parse(localStorage.getItem("monedas"));
 let compartir = document.getElementById("share");
 
-//console.log("datos")
-//console.log(datos)
-
 let fechasDuplicadas = []; //aca se guardan todas la fechas aunque sean repetidas
 let favs = []; // aca se guardaran las monedas seleccionadas como favoritas
 
-datos.forEach(cotizacion => {
-    if (cotizacion.estado) {
-        favs.push(cotizacion);
-    }
-});
-
-//console.log("favs")
-//console.log(favs)
+if (datos) {
+    datos.forEach(cotizacion => {
+        if (cotizacion.estado) {
+            favs.push(cotizacion);
+        }
+    });   
+}
 
 /*recorro el array datos tomando las fechas de cada item y guardandolas en fechasDuplicadas */
 for (let i = 0; i < favs.length; i++) {
@@ -32,15 +28,9 @@ let setFechas = new Set(fechasDuplicadas);
 
 //transformo el set setFechas en array nuevamente
 let fechas = Array.from(setFechas).sort();
-
-//console.log("fechas")
-//console.log(fechas)
  
 //---------------PREPARO LOS DATOS DEL BLUE---------------
 let blue = favs.filter(cotizacion => cotizacion.nombre == "Blue"); //la comparacion tiene que ser con el nombre del objeto que este en local storage
-
-//console.log("dolar blue")
-//console.log(blue)
 
 let compraBlue = [] //aca se guardan todos los valores de compra de las cotizaciones del blue guardadas
 let ventaBlue = [] //aca los valores de venta

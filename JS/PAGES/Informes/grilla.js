@@ -18,6 +18,15 @@ let cotizacionesPesoChileno = filtrador(favs,"Peso Chileno");
 let cotizacionesPesoUruguayo = filtrador(favs,"Peso Uruguayo");
 let cotizacionesReales = filtrador(favs,"Real Brasileño");
 
+if (!favs.length) {
+    let mensaje = document.createElement("p");
+    mensaje.className = "noCotizaciones"
+    mensaje.innerHTML = "no hay cotizaciones guardadas";
+    tablaMain.appendChild(mensaje);
+}
+
+
+
 //cotizacionesBlue
 var x = 0
 var j = 0;

@@ -9,11 +9,14 @@ let ls = JSON.parse(localStorage.getItem("monedas"));
 console.log("ls")
 console.log(ls)
 
-datos.forEach(cotizacion => {
-    if (cotizacion.estado) {
-        favs.push(cotizacion);
-    }
-});
+if (datos) { //verifico si hay algo guardado en storage si hay y esta marcado como fav lo guardo en favs
+    datos.forEach(cotizacion => {
+        if (cotizacion.estado) {
+            favs.push(cotizacion);
+        }
+    });    
+}
+
 
 function buscarYEliminar() {
     let valorBorrar = this.closest('button');
@@ -56,45 +59,48 @@ de comparar fechas esta funcion recibe dos parametros pero solo se pasa uno, lo 
 metodo sort ya sabe que tiene que pasar dos parametros del array SE ORDENARAN DE MENOR A MAYOR*/
 favs.sort(compararPorFecha);
 
-favs.forEach(cotizacion => {
-    if (favs) {
-        let nuevoItem = document.createElement("li");
+if(!favs.length){
+    let mensaje = document.createElement("p");
+    mensaje.className = "noCotizaciones"
+    mensaje.innerHTML = "no hay cotizaciones guardadas";
+    contenidoPrincipal.appendChild(mensaje);
 
-        //recorto el nombre de contado con liquidacion porque al ser muy largo hace que el contenedor tenga un tamaño diferente al resto
-        if (cotizacion.nombre == "Contado con liquidación") {
-
-            //tener en cuenta que el metodo toFixed devuelve un string
-
-            nuevoItem.innerHTML =
-            `
-            <div>
-                <h4>${cotizacion.nombre.slice(0,17)}</h4> <span class="compra">compra $${cotizacion.compra}</span><span class="venta">venta $${cotizacion.venta}</span>
-                <button class="eliminar" id="${cotizacion.id}" name="${cotizacion.fecha}"><img src="..//IMG/trash-white.png" alt=""></button>
-                <p>${cotizacion.fecha.slice(0,10)}</p>
-            </div>
-            `
-  
-        } else {
-            nuevoItem.innerHTML =
-            `
-            <div>
-                <h4>${cotizacion.nombre}</h4> <span class="compra">compra $${cotizacion.compra}</span><span class="venta">venta $${cotizacion.venta}</span>
-                <button class="eliminar" id="${cotizacion.id}" name="${cotizacion.fecha}"><img src="..//IMG/trash-white.png" alt=""></button>
-                <p>${cotizacion.fecha.slice(0,10)}</p>
-            </div>
-            `
-
+}else{
+    favs.forEach(cotizacion => {
+        if (favs) {
+            let nuevoItem = document.createElement("li");
+    
+            //recorto el nombre de contado con liquidacion porque al ser muy largo hace que el contenedor tenga un tamaño diferente al resto
+            if (cotizacion.nombre == "Contado con liquidación") {
+    
+                //tener en cuenta que el metodo toFixed devuelve un string
+    
+                nuevoItem.innerHTML =
+                `
+                <div>
+                    <h4>${cotizacion.nombre.slice(0,17)}</h4> <span class="compra">compra $${cotizacion.compra}</span><span class="venta">venta $${cotizacion.venta}</span>
+                    <button class="eliminar" id="${cotizacion.id}" name="${cotizacion.fecha}"><img src="..//IMG/trash-white.png" alt=""></button>
+                    <p>${cotizacion.fecha.slice(0,10)}</p>
+                </div>
+                `
+      
+            } else {
+                nuevoItem.innerHTML =
+                `
+                <div>
+                    <h4>${cotizacion.nombre}</h4> <span class="compra">compra $${cotizacion.compra}</span><span class="venta">venta $${cotizacion.venta}</span>
+                    <button class="eliminar" id="${cotizacion.id}" name="${cotizacion.fecha}"><img src="..//IMG/trash-white.png" alt=""></button>
+                    <p>${cotizacion.fecha.slice(0,10)}</p>
+                </div>
+                `
+    
+            }
+            listaMonedas.appendChild(nuevoItem);
         }
+    });
+    
+}
 
-        listaMonedas.appendChild(nuevoItem);
-
-    } else {
-        let mensaje = document.createElement("p");
-
-        mensaje.innerHTML = "no hay cotizaciones guardadas";
-        contenidoPrincipal.appendChild(mensaje);
-    }
-});
 
 // Asignar la función eliminar a cada botón eliminar
 let botonesEliminar = document.querySelectorAll(".eliminar");
