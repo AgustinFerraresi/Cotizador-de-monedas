@@ -10,6 +10,8 @@
     --scroll_oscuro_hover:#34353d;
 }
 
+
+
 .conteiner{
     width: 100%;
     max-width: 1264px;
@@ -37,10 +39,6 @@
 
 .pepe{
     max-width: 50px;
-}
-
-#header-moneda{
-    width: 450px !important;
 }
 
 .fecha{
@@ -164,10 +162,6 @@ text-transform: uppercase;
     max-height: 100px;
 }
 
-#lista-monedas li {
-
-}
-
 #lista-monedas div p{
  justify-self: center;   
  align-self: center;
@@ -226,13 +220,11 @@ div .venta{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 50px 0 50px;
 }
 
 
 /*-----------------------BOTON COMPARTIR Y MIGAS DE PAN-----------------------*/
-
-
-
 .migas-pan{
     height: 20px;
     color: #fff;
@@ -241,4 +233,21 @@ div .venta{
 
 .migas-pan span:hover{
     color:var(--orange);
+}
+
+/*-----------------------BOTON PARA IMPRIMIR-----------------------*/
+#imprimir{
+    padding: 10px;
+    background-color: var(--orange);
+    border: none;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#imprimir:hover{
+    background-color:rgba(177, 123, 7, 0.8); 
+    transition: all 0.5s;
 }

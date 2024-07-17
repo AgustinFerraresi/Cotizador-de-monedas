@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historico</title>
+    <link rel="stylesheet" href="..//CSS/COMMON/header&footer.css">
+    <link rel="stylesheet" href="..//CSS/PAGES/contacto.css">
+    <link rel="stylesheet" href="..//CSS/PAGES/historico.css">
+    <link rel="icon" href="../IMG/logo.png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js" defer></script>
+    <script src="..//JS/PAGES/historico/historico.js" defer></script>
+    <script src="..//JS/COMMON/comments.js" defer></script>
+</head>
+
+<body>
+
+    <div id="main-container">
+        <header>
+            <a href="index.html" title="Change Coins">
+                <img src="../IMG/logo2.jpg" alt="logo">
+                <h1>Change Coins</h1>
+            </a>
+        </header>
+
+        <main>
+            <div id="contenedor-selector">
+                <select name="" id="selector-monedas">
+                    <option value="todos" selected placeholder>todos</option>
+                    <option value="2011">2011</option>
+                    <option value="2012">2012</option>
+                    <option value="2013">2013</option>
+                    <option value="2014">2014</option>
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                </select>
+
+                <div></div>
+                <p class="migas-pan">
+                    se encuentra en: <a href="index.html" class="migas-pan" target="_self"><span>Inicio</span></a> / Informes
+                </p>
+
+            </div>
+
+            <section class="menu-lateral">
+                <ul> 
+                    <a href="index.html"><li>Inicio</li></a>
+                    <a href="miArchivo.html"><li>Mi archivo</li></a>
+                    <a href="informes.html"><li>Informes</li></a>
+                    <a href="contacto.html"><li>Contactenos</li></a>
+                </ul>
+
+                <div id="coments">
+                    <img src="..//IMG/foto-perfil-elon.png" alt="foto-perfil">
+                    <h5>Elon Musk</h5>
+                    <p>
+                        Muy buena página, quiero a este muchacho trabajando en Tesla
+                    </p>
+               </div>
+            </section>
+
+            <canvas id="miGrafica" ></canvas>
+            
+        </main>
+
+
+        <!--FOOTER-->
+        <footer>
+            <div id="contenedor-redes">
+                <h4>Comunidad</h4>
+                <a href="https://twitter.com/" target="_blank" title="twitter"><img src="..//IMG/logo-twitter.png" alt="twitter"></a>
+                <a href="https://www.instagram.com/?hl=es" target="_blank" title="instagram"><img src="..//IMG/logo-instagram.png" alt="instagram" id="logo-instagram"></a>
+                <a href="https://www.youtube.com/" target="_blank" title="youtube"><img src="..//IMG/logo-yt.png" alt="logo-yt"></a>
+                <a href="https://discord.com/" target="_blank" title="discord"><img src="..//IMG/logo-discord.png" alt="logo-discord"></a>
+                <a href="https://www.facebook.com/" target="_blank" title="facebook"><img src="..//IMG/logo-facebook.png" alt="logo-facebook"></a>
+                <a href="contacto.html" target="_blank" title="gmail"><img src="..//IMG/logo-gmail.png" alt="logo-gmail"></a>
+            </div>
+
+            <div id="contenedor-lista">
+                <ul>
+                    <!--falta completar la direccion de los links-->
+                    <a href="index.html">
+                        <li>Inicio</li>
+                    </a>
+                    <a href="miArchivo.html">
+                        <li>Mi archivo</li>
+                    </a>
+                    <a href="informes.html">
+                        <li>Informes</li>
+                    </a>
+                    <a href="contacto.html">
+                        <li>Contactenos</li>
+                    </a>
+                </ul>
+            </div>
+
+            <div id="contenedor-nose">
+                <p>Change Coins24© TUP - Cátedra de LAB 2 - 2024</p>
+            </div>
+
+            <div id="contenedor-nose2">
+                <p>
+                    <b>Developed by: </b><a href="https://www.linkedin.com/in/agustin-ferraresi-90983222a/" 
+                    target="_blank">Agustin Ferraresi</a> (53029) 1TUP6 - 2024
+                </p>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
