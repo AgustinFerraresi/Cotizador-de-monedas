@@ -1,7 +1,5 @@
 "use strict";
 
-
-
 const btn = document.getElementById('send');
 
 document.getElementById('form')
@@ -19,6 +17,6 @@ document.getElementById('form')
       alert('Enviado!');
     }, (err) => {
       btn.textContent = 'Enviar';
-      alert(JSON.stringify(err));
+      alert("Se produjo un error inténtelo más tarde",JSON.stringify(err));
     });
 });

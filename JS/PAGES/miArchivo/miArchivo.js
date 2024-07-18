@@ -5,7 +5,7 @@ let favs = [] //aca se guardaran las cotizaciones que esten marcadas como favori
 let listaMonedas = document.getElementById("lista-monedas");
 let contenidoPrincipal = document.getElementById("contenido-principal");
 
-let ls = JSON.parse(localStorage.getItem("monedas"));
+let ls = JSON.parse(localStorage.getItem("monedas"));//ls es local storage
 console.log("ls")
 console.log(ls)
 
@@ -25,11 +25,13 @@ function buscarYEliminar() {
     listItem.style.display = 'none';
 
     for (let i = 0; i < ls.length; i++) {
-        if (valorBorrar.id == ls[i].id && valorBorrar.name == ls[i].fecha) {
+        if (valorBorrar.id == ls[i].id && valorBorrar.name == ls[i].fecha) {//name hace referencia a la fecha del objeto
             console.log("estoy en el if del for")
 
             let array = Array.from(ls);
-            array.splice(i,1);
+            //array.splice(i,1);
+
+            array[i].estado = false
 
             localStorage.setItem("monedas",JSON.stringify(array));
 
@@ -37,6 +39,7 @@ function buscarYEliminar() {
             alert("Error no hay coincidencias");
         }
     }
+    alert("Cotizacion eliminada correctamente!");
 }
 
 //convierto una fecha en formato 'YYYY-MM-DD' a un objeto Date

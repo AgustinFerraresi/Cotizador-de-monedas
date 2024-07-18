@@ -735,6 +735,7 @@ function main() {
         // actualizo el grafico despues de modificar los datasets sino no se muestran los cambios
         grafico.update();
 }
+
 let boton = document.getElementById("share");
 let form = document.getElementById("form");
 let z = 0
@@ -746,8 +747,8 @@ function envioEmail() {
         form.style.display = "none";
         z = 0
     }
-    
 }
+//para volver a ocultar el cartel de envio de mail hay que volver a hacer click en el boton compartir
 boton.onclick = envioEmail;
 
 const btn = document.getElementById('button');
@@ -766,6 +767,11 @@ document.getElementById('form')
       alert('Correo enviado!');
     }, (err) => {
       btn.value = 'Enviar';
-      alert(JSON.stringify(err));
+      alert("Se produjo un error inténtelo más tarde",JSON.stringify(err));       
     });
 });
+
+
+
+
+  
