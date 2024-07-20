@@ -2,6 +2,8 @@
 
 const btn = document.getElementById('send');
 
+//el destino es hgerardo@gmail.com ya que solo me dejaba poner un solo mail como destinatario
+
 document.getElementById('form')
  .addEventListener('submit', function(event) {
    event.preventDefault();

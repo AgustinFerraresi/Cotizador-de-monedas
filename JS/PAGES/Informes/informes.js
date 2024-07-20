@@ -751,6 +751,8 @@ function envioEmail() {
 //para volver a ocultar el cartel de envio de mail hay que volver a hacer click en el boton compartir
 boton.onclick = envioEmail;
 
+//el destino es hgerardo@gmail.com ya que solo me dejaba poner un solo mail como destinatario
+
 const btn = document.getElementById('button');
 document.getElementById('form')
  .addEventListener('submit', function(event) {
